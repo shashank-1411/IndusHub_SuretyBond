@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-white text-slate-900 antialiased;
+  font-family: var(--font-manrope), system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.page-offset {
+  padding-top: 76px;
+}
+
+/* Thin orange scrollbar for horizontal rows */
+.benefits-scroll::-webkit-scrollbar,
+.process-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.benefits-scroll::-webkit-scrollbar-track,
+.process-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.benefits-scroll::-webkit-scrollbar-thumb,
+.process-scroll::-webkit-scrollbar-thumb {
+  background-color: #ec7330;
+  border-radius: 9999px;
+}
+
+.benefits-scroll,
+.process-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #ec7330 transparent;
+}
+
+/* Logos marquee */
+@keyframes logos-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logos-marquee {
+  width: max-content;
+  animation: logos-marquee 20s linear infinite;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.55s ease-out forwards;
+}
