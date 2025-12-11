@@ -193,7 +193,7 @@ export default function Home() {
 
       <main className="bg-white shadow-sm">
         {/* Hero (text band) */}
-        <section className="border-b border-[#f1e6de] bg-[#f7f3ef] px-6 py-16 md:px-20">
+        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
           <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)]">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#cf6734]">
@@ -231,14 +231,14 @@ export default function Home() {
         </section>
 
         {/* Key Players */}
-        <section className="border-b border-[#f1e6de] bg-[#f7f3ef] px-6 py-16 md:px-20">
+        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
           <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.5fr)] md:items-start">
             {/* Left copy column */}
             <div className="max-w-sm">
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#cf6734]">
                 Key Players
               </p>
-              <p className="mt-5 text-sm leading-relaxed text-slate-800">
+              <p className="mt-5 text-base md:text-lg leading-relaxed text-slate-800">
                 The transactions always involve three parties: the Principal,
                 the contractor, and the surety provider (Insurance Company).
               </p>
@@ -263,14 +263,14 @@ export default function Home() {
         <section className="border-b border-[#e5edf3] bg-white px-6 py-16 md:px-20">
           <div className="grid gap-12 md:grid-cols-2">
             {/* Mission */}
-            <div>
+            <div className="group">
               <div className="mb-6 flex h-8 w-8 items-center justify-center">
                 <Image
                   src="/flag_2.png"
                   alt="Mission icon"
                   width={32}
                   height={32}
-                  className="h-8 w-8 object-contain"
+                  className="hover-spin-scale h-8 w-8 object-contain"
                 />
               </div>
               <h2 className="text-2xl font-semibold text-slate-900">Our Mission</h2>
@@ -282,14 +282,14 @@ export default function Home() {
             </div>
 
             {/* Vision */}
-            <div>
+            <div className="group">
               <div className="mb-6 flex h-8 w-8 items-center justify-center">
                 <Image
                   src="/visibility.png"
                   alt="Vision icon"
                   width={32}
                   height={32}
-                  className="h-8 w-8 object-contain"
+                  className="hover-spin-scale h-8 w-8 object-contain"
                 />
               </div>
               <h2 className="text-2xl font-semibold text-slate-900">Our Vision</h2>
@@ -327,10 +327,10 @@ export default function Home() {
               {benefits.map((benefit) => (
                 <article
                   key={benefit.title}
-                  className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-[#cf6734] hover:shadow-[0_10px_30px_-12px_rgba(207,103,52,0.45)]"
+                  className="hover-tilt-scale rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#cf6734]"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white text-[#cf6734]">
-                    {benefit.icon}
+                    <span className="spin-on-hover">{benefit.icon}</span>
                   </div>
                   <h3 className="mt-4 text-base font-semibold text-slate-900">
                     {benefit.title}
@@ -398,6 +398,7 @@ export default function Home() {
                   type="file"
                   accept=".pdf"
                   name="companyProfile"
+                  required
                   className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
                 />
               </div>
@@ -409,6 +410,7 @@ export default function Home() {
                   type="file"
                   accept=".pdf"
                   name="gstCertificate"
+                  required
                   className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
                 />
               </div>
@@ -421,6 +423,8 @@ export default function Home() {
                   type="file"
                   accept=".pdf"
                   name="suretyProposalForm"
+                  required
+                  required
                   className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
                 />
               </div>
@@ -437,6 +441,8 @@ export default function Home() {
                   type="file"
                   accept=".pdf"
                   name="tenderDocument"
+                  required
+                  required
                   className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
                 />
               </div>
@@ -449,6 +455,8 @@ export default function Home() {
                   type="file"
                   accept=".pdf"
                   name="rfp"
+                  required
+                  required
                   className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
                 />
               </div>
@@ -472,6 +480,7 @@ export default function Home() {
                   type="file"
                   accept=".pdf"
                   name="financialsYear1"
+                  required
                   className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
                 />
               </div>
@@ -480,6 +489,7 @@ export default function Home() {
                   type="file"
                   accept=".pdf"
                   name="financialsYear2"
+                  required
                   className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
                 />
               </div>
@@ -589,17 +599,23 @@ export default function Home() {
           <div className="mt-10 grid gap-4 md:grid-cols-3 max-w-6xl mx-auto">
             <TestimonialsColumn
               testimonials={scrollingTestimonials}
-              duration={24}
+              duration={18}
+              direction="up"
+              hoverSlowdown={1.8}
               className="h-[420px]"
             />
             <TestimonialsColumn
               testimonials={[...scrollingTestimonials].reverse()}
-              duration={26}
+              duration={20}
+              direction="down"
+              hoverSlowdown={1.8}
               className="h-[420px]"
             />
             <TestimonialsColumn
               testimonials={scrollingTestimonials}
-              duration={28}
+              duration={22}
+              direction="up"
+              hoverSlowdown={1.8}
               className="hidden h-[420px] md:block"
             />
         </div>
@@ -644,6 +660,7 @@ export default function Home() {
                 <input
                   type="email"
                   placeholder="Write Email"
+                  required
                   name="email"
                   className="h-9 w-full flex-1 rounded-l-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />

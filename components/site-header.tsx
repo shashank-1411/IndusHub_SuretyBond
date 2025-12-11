@@ -11,7 +11,7 @@ export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#f1e6de] bg-white">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-transparent bg-white">
       <div className="flex items-center justify-between px-5 py-4 md:px-12 lg:px-20">
         <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
           <Image

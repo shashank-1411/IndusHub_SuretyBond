@@ -15,20 +15,25 @@ type TestimonialsColumnProps = {
   className?: string;
   testimonials: Testimonial[];
   duration?: number;
+  direction?: "up" | "down";
+  hoverSlowdown?: number;
 };
 
 export const TestimonialsColumn = ({
   className,
   testimonials,
   duration = 20,
+  direction = "up",
+  hoverSlowdown = 2,
 }: TestimonialsColumnProps) => {
   const controls = useAnimation();
+  const target = direction === "up" ? ["0%", "-50%"] : ["-50%", "0%"];
 
-  const startLoop = () => {
+  const startLoop = (multiplier = 1) => {
     controls.start({
-      y: ["0%", "-50%"],
+      y: target,
       transition: {
-        duration,
+        duration: duration * multiplier,
         repeat: Infinity,
         ease: "linear",
         repeatType: "loop",
@@ -39,13 +44,13 @@ export const TestimonialsColumn = ({
   useEffect(() => {
     startLoop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [duration]);
+  }, [duration, direction]);
 
   return (
     <div
       className={cn("overflow-hidden", className)}
-      onMouseEnter={() => controls.stop()}
-      onMouseLeave={startLoop}
+      onMouseEnter={() => startLoop(hoverSlowdown)}
+      onMouseLeave={() => startLoop()}
     >
       <motion.div animate={controls} className="flex flex-col gap-6 pb-6">
         {[...new Array(2)].map((_, index) => (

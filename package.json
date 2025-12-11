@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ark-ui/react": "^4.9.2",
     "canvas-confetti": "^1.9.4",
     "motion": "^11.18.2",
     "next": "^16.0.8",

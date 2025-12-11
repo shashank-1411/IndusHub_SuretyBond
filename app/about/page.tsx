@@ -8,6 +8,7 @@ import { CtaButton } from "@/components/cta-button";
 import { ConfettiTrigger } from "@/components/confetti-trigger";
 import { FormFeedback } from "@/components/form-feedback";
 import { TestimonialsColumn } from "@/components/testimonials-column";
+import { ThumbnailsCarousel } from "@/components/thumbnails-carousel";
 
 const services = [
   {
@@ -87,6 +88,14 @@ const scrollingTestimonials = testimonials.map((item) => ({
   role: item.sector,
 }));
 
+const storiesImages = [
+  "/constantinos-kollias-yqBvJJ8jGBQ-unsplash 1.png",
+  "/bridge.PNG",
+  "/8140d9ae-0fe7-4ed4-b0b6-d16c14747555 1.png",
+  "/Mask group.png",
+  "/Rectangle 23088.png",
+];
+
 export default function AboutPage() {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
 
@@ -140,6 +149,22 @@ export default function AboutPage() {
                 <CtaButton label="More About Indushub" href="/about" />
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Our Stories - Thumbnails Carousel */}
+        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#cf6734]">
+            Our Stories
+          </p>
+          <h2 className="mt-2 text-[32px] font-semibold text-slate-900 md:text-[36px]">
+            Moments from the field
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-700">
+            A quick look at highlights and on-ground moments that shape our work.
+          </p>
+          <div className="mt-8">
+            <ThumbnailsCarousel />
           </div>
         </section>
 
@@ -232,17 +257,23 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-4 md:grid-cols-3 max-w-6xl mx-auto">
             <TestimonialsColumn
               testimonials={scrollingTestimonials}
-              duration={24}
+              duration={18}
+              direction="up"
+              hoverSlowdown={1.8}
               className="h-[420px]"
             />
             <TestimonialsColumn
               testimonials={[...scrollingTestimonials].reverse()}
-              duration={26}
+              duration={20}
+              direction="down"
+              hoverSlowdown={1.8}
               className="h-[420px]"
             />
             <TestimonialsColumn
               testimonials={scrollingTestimonials}
-              duration={28}
+              duration={22}
+              direction="up"
+              hoverSlowdown={1.8}
               className="hidden h-[420px] md:block"
             />
           </div>
@@ -288,6 +319,7 @@ export default function AboutPage() {
                 <input
                   type="email"
                   placeholder="Write Email"
+                  required
                   name="email"
                   className="h-9 w-full flex-1 rounded-l-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />

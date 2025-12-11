@@ -12,6 +12,9 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Indus Hub | Surety Bonds",
   description: "Indus Hub surety bond solutions and services.",
+  icons: {
+    icon: "/indus_business_hub_logo.jpg",
+  },
 };
 
 export default function RootLayout({

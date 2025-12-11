@@ -62,3 +62,37 @@ body {
 .animate-rise {
   animation: rise 0.55s ease-out forwards;
 }
+
+.hover-spin-scale {
+  transition: transform 0.6s ease;
+}
+
+.group:hover .hover-spin-scale {
+  transform: scale(1.12) rotate(360deg);
+}
+
+.hover-tilt-scale {
+  transition: transform 0.5s ease, box-shadow 0.4s ease;
+}
+
+.hover-tilt-scale:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.12);
+}
+
+.spin-on-hover {
+  transition: transform 0.6s ease;
+}
+
+.hover-tilt-scale:hover .spin-on-hover {
+  transform: scale(1.12) rotate(360deg);
+}
+
+@keyframes carousel-spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}

@@ -308,17 +308,23 @@ export default function SuretyBondsPage() {
           <div className="mt-10 grid gap-4 md:grid-cols-3 max-w-6xl mx-auto">
             <TestimonialsColumn
               testimonials={scrollingTestimonials}
-              duration={24}
+              duration={18}
+              direction="up"
+              hoverSlowdown={1.8}
               className="h-[420px]"
             />
             <TestimonialsColumn
               testimonials={[...scrollingTestimonials].reverse()}
-              duration={26}
+              duration={20}
+              direction="down"
+              hoverSlowdown={1.8}
               className="h-[420px]"
             />
             <TestimonialsColumn
               testimonials={scrollingTestimonials}
-              duration={28}
+              duration={22}
+              direction="up"
+              hoverSlowdown={1.8}
               className="hidden h-[420px] md:block"
             />
           </div>
@@ -364,6 +370,7 @@ export default function SuretyBondsPage() {
                 <input
                   type="email"
                   placeholder="Write Email"
+                  required
                   name="email"
                   className="h-9 w-full flex-1 rounded-l-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
