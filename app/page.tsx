@@ -424,7 +424,6 @@ export default function Home() {
                   accept=".pdf"
                   name="suretyProposalForm"
                   required
-                  required
                   className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
                 />
               </div>
@@ -442,7 +441,6 @@ export default function Home() {
                   accept=".pdf"
                   name="tenderDocument"
                   required
-                  required
                   className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
                 />
               </div>
@@ -455,7 +453,6 @@ export default function Home() {
                   type="file"
                   accept=".pdf"
                   name="rfp"
-                  required
                   required
                   className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
                 />
