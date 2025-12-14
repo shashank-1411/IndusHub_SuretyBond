@@ -290,42 +290,53 @@ export default function AboutPage() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-white px-6 py-12 text-slate-800 md:px-12">
-          <div className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-start">
-            {/* Left logo block */}
-            <div>
+        <footer className="bg-white px-6 py-12 text-slate-800 md:px-20">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start">
+            {/* Left */}
+            <div className="space-y-4">
               <Image
                 src="/1111 1.png"
                 alt="Indus Hub logo"
-                width={180}
-                height={40}
-                className="h-10 w-auto"
+                width={170}
+                height={38}
+                className="h-9 w-auto"
               />
-              <p className="mt-2 text-sm text-slate-700">Your Growth Partner</p>
+              <p className="text-sm font-semibold text-slate-700">Your Growth Partner</p>
+              <hr className="w-72 border-slate-200" />
+              <div className="flex flex-wrap gap-6 text-xs text-slate-700">
+                <Link href="/about" className="font-semibold hover:text-[#cf6734]">About</Link>
+                <Link href="/indushub-services" className="font-semibold hover:text-[#cf6734]">Services</Link>
+                <Link href="/privacy" className="font-semibold hover:text-[#cf6734]">Privacy Policy</Link>
+                <Link href="/terms" className="font-semibold hover:text-[#cf6734]">Terms and Conditions</Link>
+              </div>
             </div>
 
-            {/* Right contact block */}
-            <div className="text-xs text-slate-700">
-              <p className="font-semibold text-slate-900">Call:</p>
-              <p className="mt-1 text-sm text-slate-800">+91 99256 24974</p>
-              <p className="mt-4 font-semibold text-slate-900">Email:</p>
-              <p className="mt-1 text-sm text-slate-800">pravin@indushub.in</p>
+            {/* Right */}
+            <div className="space-y-3 text-[13px] font-semibold text-slate-800">
+              <div>
+                <p className="font-semibold">Call:</p>
+                <p className="mt-1 text-sm font-semibold text-slate-800">+91 99256 24974</p>
+              </div>
+              <div>
+                <p className="font-semibold">Email:</p>
+                <p className="mt-1 text-sm font-semibold text-slate-800">pravin@indushub.in</p>
+              </div>
               <form
                 id="newsletter-about"
                 action="https://formspree.io/f/mnnebzgb"
                 method="POST"
-                className="mt-4 flex max-w-xs items-stretch gap-0"
+                className="mt-4 flex max-w-md items-stretch gap-0 overflow-hidden rounded-sm border border-slate-200"
               >
                 <input
                   type="email"
                   placeholder="Write Email"
                   required
                   name="email"
-                  className="h-9 w-full flex-1 rounded-l-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
+                  className="h-9 w-full flex-1 border-0 bg-white px-3 text-[11px] text-slate-800 outline-none"
                 />
                 <button
                   type="submit"
-                  className="h-9 rounded-r-sm bg-[#cf6734] px-4 text-[12px] font-semibold text-white hover:bg-[#b45828]"
+                  className="h-9 bg-[#cf6734] px-4 text-[12px] font-semibold text-white hover:bg-[#b45828]"
                 >
                   <svg
                     aria-hidden="true"

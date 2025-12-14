@@ -27,169 +27,138 @@ export default function ContactPage() {
                 Reach Out To Us
               </h1>
               <p className="mt-4 text-sm leading-relaxed text-slate-700">
-                We welcome all inquiries—collaborations, project discussions, or
-                exploring opportunities with Indushub. Share your details and
-                we&apos;ll get back quickly.
+                We welcome all types of inquiries, whether you&apos;re looking
+                to collaborate, discuss a specific project, or explore
+                opportunities with Indushub.
               </p>
             </div>
 
-            {/* Contact Form - compact platform style, centered */}
-            <div className="mt-10 w-full max-w-4xl">
-              <div className="rounded-md border border-slate-200 bg-white p-6 shadow-sm">
-                <h2 className="text-lg font-semibold text-slate-900 text-left">
-                  Contact Form
-                </h2>
-                <p className="mt-1 text-left text-[12px] text-slate-600">
-                  Fill in the essentials. We&apos;ll respond promptly.
+            {/* Contact Form - styled to match reference */}
+            <div className="mt-10 w-full max-w-5xl">
+              <form
+                action="https://formspree.io/f/mnnebzgb"
+                method="POST"
+                className="grid gap-4 text-[11px] md:grid-cols-2"
+              >
+                <div className="flex flex-col gap-1">
+                  <label className="font-medium text-slate-700">First Name*</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    required
+                    className="h-8 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="font-medium text-slate-700">Last Name*</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    required
+                    className="h-8 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <label className="font-medium text-slate-700">Company*</label>
+                  <input
+                    type="text"
+                    name="company"
+                    required
+                    className="h-8 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="font-medium text-slate-700">Email*</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className={`h-8 w-full rounded-sm border px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734] ${
+                      emailError ? "border-red-500" : "border-slate-300 bg-white"
+                    }`}
+                    onBlur={(e) => {
+                      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                      setEmailError(!emailRegex.test(e.target.value));
+                    }}
+                  />
+                  {emailError && (
+                    <p className="mt-1 text-[10px] text-red-500">
+                      Please enter a valid email.
+                    </p>
+                  )}
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <label className="font-medium text-slate-700">Phone Number*</label>
+                  <input
+                    type="tel"
+                    defaultValue="+91"
+                    name="phone"
+                    required
+                    minLength={10}
+                    className="h-8 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="font-medium text-slate-700">City*</label>
+                  <select
+                    name="city"
+                    required
+                    className="h-8 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
+                  >
+                    <option value="">Select your city</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="bangalore">Bangalore</option>
+                    <option value="pune">Pune</option>
+                    <option value="hyderabad">Hyderabad</option>
+                    <option value="chennai">Chennai</option>
+                    <option value="kolkata">Kolkata</option>
+                  </select>
+                </div>
+
+                <div className="md:col-span-2 flex flex-col gap-1">
+                  <label className="font-medium text-slate-700">Write a message</label>
+                  <textarea
+                    className="h-24 w-full rounded-sm border border-slate-300 bg-white px-3 py-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
+                    maxLength={150}
+                    name="message"
+                    onChange={(e) => setMessageLength(e.target.value.length)}
+                  />
+                  <div className="mt-1 flex justify-end">
+                    <p className="text-[10px] text-slate-400">
+                      {messageLength}/150 words
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-[10px] text-red-500 md:col-span-2">*Mandatory</p>
+
+                <p className="text-[10px] leading-relaxed text-slate-700 md:col-span-2">
+                  We would like to keep in touch with you. We may send you news,
+                  reports, marketing updates, sales communications and invitations to
+                  exclusive events. You can always change your preferences or stop at
+                  any time.
                 </p>
 
-                <form
-                  action="https://formspree.io/f/mnnebzgb"
-                  method="POST"
-                  className="mt-6 space-y-4 text-[11px]"
-                >
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="flex flex-col gap-1">
-                      <label className="font-medium text-slate-700">
-                        First Name<span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="firstName"
-                        required
-                        className="h-9 w-full rounded-sm border border-slate-300 bg-white px-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <label className="font-medium text-slate-700">
-                        Last Name<span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="lastName"
-                        required
-                        className="h-9 w-full rounded-sm border border-slate-300 bg-white px-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <label className="font-medium text-slate-700">
-                        Email<span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        className={`h-9 w-full rounded-sm border px-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734] ${
-                          emailError
-                            ? "border-red-500"
-                            : "border-slate-300 bg-white"
-                        }`}
-                        onBlur={(e) => {
-                          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                          setEmailError(!emailRegex.test(e.target.value));
-                        }}
-                      />
-                      {emailError && (
-                        <p className="mt-1 text-[10px] text-red-500">
-                          Please enter a valid email.
-                        </p>
-                      )}
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <label className="font-medium text-slate-700">
-                        Phone<span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="tel"
-                        defaultValue="+91"
-                        name="phone"
-                        required
-                        minLength={10}
-                        className="h-9 w-full rounded-sm border border-slate-300 bg-white px-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                      />
-                    </div>
-                  </div>
+                <label className="flex items-start gap-2 text-[10px] text-slate-700 md:col-span-2">
+                  <input
+                    type="checkbox"
+                    defaultChecked
+                    className="mt-0.5 h-4 w-4 rounded-sm border-slate-300 text-[#cf6734] focus:ring-[#cf6734]"
+                  />
+                  <span>
+                    I agree with this website&apos;s{" "}
+                    <span className="underline">Terms & Conditions</span> and{" "}
+                    <span className="underline">Privacy Policy</span>
+                  </span>
+                </label>
 
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="flex flex-col gap-1">
-                      <label className="font-medium text-slate-700">
-                        Company<span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="company"
-                        required
-                        className="h-9 w-full rounded-sm border border-slate-300 bg-white px-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <label className="font-medium text-slate-700">
-                        City<span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        name="city"
-                        required
-                        className="h-9 w-full rounded-sm border border-slate-300 bg-white px-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                      >
-                        <option value="">Select your city</option>
-                        <option value="mumbai">Mumbai</option>
-                        <option value="delhi">Delhi</option>
-                        <option value="bangalore">Bangalore</option>
-                        <option value="pune">Pune</option>
-                        <option value="hyderabad">Hyderabad</option>
-                        <option value="chennai">Chennai</option>
-                        <option value="kolkata">Kolkata</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-1">
-                    <label className="font-medium text-slate-700">
-                      Message
-                    </label>
-                    <textarea
-                      className="mt-1 h-28 w-full rounded-sm border border-slate-300 bg-white p-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                      maxLength={150}
-                      name="message"
-                      onChange={(e) => setMessageLength(e.target.value.length)}
-                    />
-                    <div className="mt-1 flex justify-end">
-                      <p className="text-[10px] text-slate-400">
-                        {messageLength}/150 words
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="text-[10px] text-red-500">*Mandatory</div>
-
-                  <div className="space-y-3 text-[10px] leading-relaxed text-slate-600">
-                    <p>
-                      We may send you news, reports, marketing updates, sales
-                      communications and invitations to exclusive events. You
-                      can change preferences anytime.
-                    </p>
-                    <label className="flex items-start gap-2">
-                      <input
-                        type="checkbox"
-                        id="terms"
-                        name="consent"
-                        value="yes"
-                        defaultChecked
-                        className="mt-0.5 h-4 w-4 rounded-sm border-slate-300 text-[#cf6734] focus:ring-[#cf6734]"
-                      />
-                      <span className="text-left">
-                        I agree with this website&apos;s{" "}
-                        <span className="underline">Terms & Conditions</span>{" "}
-                        and <span className="underline">Privacy Policy</span>
-                      </span>
-                    </label>
-                  </div>
-
-                  <div className="mt-4 flex justify-end">
-                    <CtaButton label="Submit" type="submit" />
-                  </div>
-                </form>
-              </div>
+                <div className="mt-2 flex justify-end md:col-span-2">
+                  <CtaButton label="Submit" type="submit" />
+                </div>
+              </form>
             </div>
           </div>
         </section>

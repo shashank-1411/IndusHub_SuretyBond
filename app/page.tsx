@@ -39,19 +39,13 @@ const benefits = [
     description:
       "Surety bonds replace costly bank guarantees so you can deploy capital where it generates higher returns.",
     icon: (
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="9" />
-        <path d="M3 12h18M12 3.5c3 3 3 14 0 17M8 5c1.5 2 2.5 12 0 14M16 5c-1.5 2-2.5 12 0 14" />
-      </svg>
+      <Image
+        src="/11.png"
+        alt="Free Up Capital"
+        width={48}
+        height={48}
+        className="h-12 w-12 object-contain"
+      />
     ),
   },
   {
@@ -59,19 +53,13 @@ const benefits = [
     description:
       "Move guarantees off your banking lines and unlock additional headroom for working capital or expansion.",
     icon: (
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="4" y="4" width="16" height="16" rx="2" />
-        <path d="M9 9h6M9 15h6M9 12h6" />
-      </svg>
+      <Image
+        src="/22.png"
+        alt="Optimize Bank Limits"
+        width={48}
+        height={48}
+        className="h-12 w-12 object-contain"
+      />
     ),
   },
   {
@@ -79,20 +67,13 @@ const benefits = [
     description:
       "Lower collateral requirements and leaner balance sheets help improve leverage and financial ratios.",
     icon: (
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M6 20h12" />
-        <path d="M6 10h12v6H6z" />
-        <path d="M9 7h6l1-3H8z" />
-      </svg>
+      <Image
+        src="/33.png"
+        alt="Reduce Financial Burden"
+        width={48}
+        height={48}
+        className="h-12 w-12 object-contain"
+      />
     ),
   },
   {
@@ -100,19 +81,13 @@ const benefits = [
     description:
       "Diversify your sources of non-fund based limits while protecting key counterparties.",
     icon: (
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M5 12h14M12 5l7 7-7 7" />
-        <path d="M5 12l7-7v14z" />
-      </svg>
+      <Image
+        src="/44.png"
+        alt="Alternative Financing"
+        width={48}
+        height={48}
+        className="h-12 w-12 object-contain"
+      />
     ),
   },
 ];
@@ -123,20 +98,13 @@ const steps = [
     description:
       "Client initiates the process by submitting their surety bond proposal, including all necessary documents.",
     icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M6 2h9l3 3v17H6z" />
-        <path d="M15 2v5h5" />
-        <path d="M8 13h8M8 17h5M8 9h3" />
-      </svg>
+      <Image
+        src="/11.png"
+        alt="Proposal & Documents"
+        width={40}
+        height={40}
+        className="h-10 w-10 object-contain"
+      />
     ),
   },
   {
@@ -144,19 +112,13 @@ const steps = [
     description:
       "Internal team conducts an initial review and due diligence on the submitted proposal and documents.",
     icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="11" cy="11" r="6" />
-        <path d="m15.5 15.5 3 3" />
-      </svg>
+      <Image
+        src="/22.png"
+        alt="Internal Due Diligence"
+        width={40}
+        height={40}
+        className="h-10 w-10 object-contain"
+      />
     ),
   },
   {
@@ -164,20 +126,13 @@ const steps = [
     description:
       "Following internal approval, the comprehensive proposal package is formally submitted to the selected insurer(s) for their evaluation.",
     icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="m4 17 6-6 4 4 6-6" />
-        <path d="M14 5h6v6" />
-        <path d="M4 19h6v-6" />
-      </svg>
+      <Image
+        src="/33.png"
+        alt="Submission to Insurer"
+        width={40}
+        height={40}
+        className="h-10 w-10 object-contain"
+      />
     ),
   },
   {
@@ -185,19 +140,13 @@ const steps = [
     description:
       "The insurer conducts due diligence, assesses risk, and issues their decision/terms on the proposal.",
     icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 21c6-3 8-7 8-11a8 8 0 1 0-16 0c0 4 2 8 8 11Z" />
-        <circle cx="12" cy="10" r="3" />
-      </svg>
+      <Image
+        src="/44.png"
+        alt="Insurer Due Diligence"
+        width={40}
+        height={40}
+        className="h-10 w-10 object-contain"
+      />
     ),
   },
   {
@@ -310,42 +259,11 @@ const scrollingTestimonials = testimonials.map((item) => ({
 
 function AutoScrollSteps() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const container = containerRef.current;
-    if (!container) return;
-
-    const interval = setInterval(() => {
-      const firstCard = container.firstElementChild as HTMLElement | null;
-      if (!firstCard) return;
-      const cardWidth = firstCard.getBoundingClientRect().width;
-      const gap = 24; // gap-6
-      const scrollAmount = cardWidth + gap;
-
-      const maxScrollLeft = container.scrollWidth - container.clientWidth;
-      const nextScrollLeft = container.scrollLeft + scrollAmount;
-
-      if (nextScrollLeft >= maxScrollLeft - 4) {
-        container.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      }
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [isPaused]);
-
   return (
-    <div
-      className="group mt-10 overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <div className="group mt-10">
       <div
         ref={containerRef}
-        className="flex gap-6 overflow-hidden"
+        className="process-scroll flex gap-6 overflow-x-auto pb-2"
         role="list"
         aria-label="Steps to obtain a surety bond"
       >
@@ -356,9 +274,7 @@ function AutoScrollSteps() {
             role="listitem"
           >
             <div className="mb-4 flex items-center">
-              <div className="rounded-md border border-[#cf6734]/30 bg-white p-2">
-                {step.icon}
-              </div>
+              {step.icon}
             </div>
             <h3 className="text-sm font-semibold text-slate-900">
               {step.title}
@@ -387,10 +303,10 @@ export default function Home() {
 
       <main className="bg-white shadow-sm">
         {/* Hero (text band) */}
-        <section className="border-b border-slate-100 bg-[#f4f4f4] px-4 py-14 sm:px-6 md:px-20">
+        <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
           <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)]">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#cf6734]">
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#cf6734]">
                 About Us
               </p>
               <h1 className="mt-4 text-3xl font-semibold leading-tight text-slate-900 sm:text-[32px] md:text-[36px]">
@@ -429,7 +345,7 @@ export default function Home() {
           <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.5fr)] md:items-start">
             {/* Left copy column */}
             <div className="max-w-sm">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#cf6734]">
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#cf6734]">
                 Key Players
               </p>
               <p className="mt-5 text-base md:text-lg leading-relaxed text-slate-800">
@@ -454,7 +370,7 @@ export default function Home() {
         </section>
 
         {/* Mission / Vision */}
-        <section className="border-b border-[#e5edf3] bg-white px-4 py-16 sm:px-6 md:px-20">
+        <section className="border-b border-[#e5edf3] bg-white px-6 py-16 md:px-20">
           <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
             {/* Mission */}
             <div className="group">
@@ -539,7 +455,7 @@ export default function Home() {
 
           {/* Client Logos */}
           <div className="mt-10 border-t border-slate-200 pt-7">
-            <p className="text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-500">
+            <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-slate-500">
               Trusted By The Best
             </p>
             <div className="mt-6 overflow-hidden">
@@ -564,15 +480,8 @@ export default function Home() {
           <div className="rounded-sm border border-slate-200 bg-white px-5 pb-10 pt-7 shadow-sm md:px-10">
             <div className="md:flex md:items-end md:justify-between">
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
+                <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#cf6734]">
                   Quotation For Surety Bond
-                </p>
-                <h2 className="mt-2 text-xl font-semibold text-slate-900">
-                  Share your proposal details and documents
-                </h2>
-                <p className="mt-2 max-w-xl text-xs leading-relaxed text-slate-600 md:text-sm">
-                  This is a sample quotation form. Submissions are currently not
-                  connected to any backend or sheet.
                 </p>
               </div>
             </div>
@@ -581,7 +490,6 @@ export default function Home() {
               id="quotation-form"
               action="https://formspree.io/f/mnnebzgb"
               method="POST"
-              encType="multipart/form-data"
               className="mt-8 grid gap-x-8 gap-y-5 text-[11px] md:grid-cols-2"
             >
               <div className="flex flex-col gap-1">
@@ -589,11 +497,10 @@ export default function Home() {
                   Company Profile<span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="file"
-                  accept=".pdf"
+                  type="text"
                   name="companyProfile"
-                  required
-                  className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
+                  placeholder="Sonai Infra"
+                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -601,11 +508,9 @@ export default function Home() {
                   GST Certificate<span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="file"
-                  accept=".pdf"
+                  type="text"
                   name="gstCertificate"
-                  required
-                  className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
+                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
               </div>
 
@@ -614,11 +519,9 @@ export default function Home() {
                   Surety Bond Proposal Form<span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="file"
-                  accept=".pdf"
+                  type="text"
                   name="suretyProposalForm"
-                  required
-                  className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
+                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -631,11 +534,9 @@ export default function Home() {
                   </span>
                 </div>
                 <input
-                  type="file"
-                  accept=".pdf"
+                  type="text"
                   name="tenderDocument"
-                  required
-                  className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
+                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
               </div>
 
@@ -644,22 +545,28 @@ export default function Home() {
                   Request For Proposal (RFP)<span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="file"
-                  accept=".pdf"
+                  type="text"
                   name="rfp"
-                  required
-                  className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
+                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <label className="font-medium text-slate-700">
                   Credit Rating Certificate (if available)
                 </label>
-                <input
-                  className="h-9 w-full rounded-sm border border-slate-300 bg-white px-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                  placeholder="Enter rating / agency"
+                <select
                   name="creditRating"
-                />
+                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
+                >
+                  <option value="">Select your city</option>
+                  <option value="mumbai">Mumbai</option>
+                  <option value="delhi">Delhi</option>
+                  <option value="bangalore">Bangalore</option>
+                  <option value="pune">Pune</option>
+                  <option value="hyderabad">Hyderabad</option>
+                  <option value="chennai">Chennai</option>
+                  <option value="kolkata">Kolkata</option>
+                </select>
               </div>
 
               <div className="flex flex-col gap-1">
@@ -668,37 +575,44 @@ export default function Home() {
                   <span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="file"
-                  accept=".pdf"
+                  type="text"
                   name="financialsYear1"
-                  required
-                  className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
+                  placeholder="Upload Year 1"
+                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
               </div>
               <div className="flex flex-col gap-1 md:pt-5">
                 <input
-                  type="file"
-                  accept=".pdf"
+                  type="text"
                   name="financialsYear2"
-                  required
-                  className="relative block h-11 w-full cursor-pointer rounded-sm border border-slate-300 bg-white pl-[130px] pr-3 text-[11px] text-slate-800 focus:border-[#cf6734] file:absolute file:left-0 file:top-0 file:h-full file:w-[120px] file:cursor-pointer file:rounded-l-sm file:border-0 file:bg-[#cf6734] file:px-4 file:text-[11px] file:font-semibold file:uppercase file:tracking-[0.16em] file:text-white file:hover:bg-[#b45828] file:focus:outline-none file:transition-colors"
-                />
-              </div>
-
-              <div className="md:col-span-2">
-                <label className="font-medium text-slate-700">Remarks</label>
-                <textarea
-                  name="remarks"
-                  className="mt-1 h-20 w-full rounded-sm border border-slate-300 bg-white p-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
+                  placeholder="Upload Year 2"
+                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
               </div>
 
               <p className="mt-1 max-w-3xl text-[10px] leading-relaxed text-slate-600 md:col-span-2">
+                *Mandatory
+              </p>
+
+              <p className="max-w-3xl text-[11px] leading-relaxed text-slate-700 md:col-span-2">
                 We would like to keep in touch with you. We may send you news,
                 reports, marketing updates, sales communications and invitations
                 to exclusive events. You can always change your preferences or
                 stop at any time.
               </p>
+
+              <label className="mt-2 flex items-start gap-2 text-[11px] text-slate-700 md:col-span-2">
+                <input
+                  type="checkbox"
+                  defaultChecked
+                  className="mt-0.5 h-4 w-4 rounded-sm border-slate-300 text-[#cf6734] focus:ring-[#cf6734]"
+                />
+                <span>
+                  I agree with this website&apos;s{" "}
+                  <span className="underline">Terms &amp; Conditions</span> and{" "}
+                  <span className="underline">Privacy Policy</span>
+                </span>
+              </label>
 
               <div className="mt-4 flex justify-end md:col-span-2">
                 <CtaButton label="Submit" type="submit" />
@@ -709,7 +623,7 @@ export default function Home() {
 
         {/* Process */}
         <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
+          <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#cf6734]">
             Process
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-900">
@@ -740,11 +654,11 @@ export default function Home() {
               <div className="mt-6">
                 <CtaButton label="About Indushub" href="/about" />
               </div>
-            </div>
+        </div>
 
             {/* Right image column */}
             <div className="relative h-60 w-full bg-slate-900 md:h-full">
-              <Image
+            <Image
                 src="/8140d9ae-0fe7-4ed4-b0b6-d16c14747555 1.png"
                 alt="Indushub team"
                 fill
@@ -800,25 +714,37 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-white px-6 py-12 text-slate-800 md:px-12">
-          <div className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-start">
-            {/* Left logo block */}
-            <div>
-            <Image
+        <footer className="bg-white px-6 py-12 text-slate-800 md:px-20">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start">
+            {/* Left */}
+            <div className="space-y-4">
+              <Image
                 src="/1111 1.png"
                 alt="Indus Hub logo"
-                width={180}
-                height={40}
-                className="h-10 w-auto"
+                width={170}
+                height={38}
+                className="h-9 w-auto"
               />
+              <p className="text-sm font-semibold text-slate-700">Your Growth Partner</p>
+              <hr className="w-72 border-slate-200" />
+              <div className="flex flex-wrap gap-6 text-xs text-slate-700">
+                <Link href="/about" className="font-semibold hover:text-[#cf6734]">About</Link>
+                <Link href="/indushub-services" className="font-semibold hover:text-[#cf6734]">Services</Link>
+                <Link href="/privacy" className="font-semibold hover:text-[#cf6734]">Privacy Policy</Link>
+                <Link href="/terms" className="font-semibold hover:text-[#cf6734]">Terms and Conditions</Link>
+              </div>
             </div>
 
-            {/* Right contact block */}
-            <div className="text-xs text-slate-700">
-              <p className="font-semibold text-slate-900">Call:</p>
-              <p className="mt-1 text-sm text-slate-800">+91 99256 24974</p>
-              <p className="mt-4 font-semibold text-slate-900">Email:</p>
-              <p className="mt-1 text-sm text-slate-800">pravin@indushub.in</p>
+            {/* Right */}
+            <div className="space-y-3 text-[13px] font-semibold text-slate-800">
+              <div>
+                <p className="font-semibold">Call:</p>
+                <p className="mt-1 text-sm font-semibold text-slate-800">+91 99256 24974</p>
+              </div>
+              <div>
+                <p className="font-semibold">Email:</p>
+                <p className="mt-1 text-sm font-semibold text-slate-800">pravin@indushub.in</p>
+              </div>
               <form
                 id="newsletter-home"
                 action="https://formspree.io/f/mnnebzgb"
@@ -854,24 +780,12 @@ export default function Home() {
               </form>
               <p
                 id="newsletter-home-status"
-                className="mt-2 hidden text-xs font-semibold text-green-600"
+                className="hidden text-xs font-semibold text-green-600"
               >
                 Submitted. Thank you!!
               </p>
             </div>
           </div>
-
-          {/* Bottom links + email */}
-          <div className="mt-10 flex flex-col gap-6 border-t border-slate-300 pt-5 text-xs text-slate-700 md:flex-row md:items-center md:justify-between">
-            <nav className="flex flex-wrap gap-8">
-              <Link href="/about" className="hover:text-[#cf6734]">About</Link>
-              <Link href="/indushub-services" className="hover:text-[#cf6734]">Services</Link>
-              <Link href="/privacy" className="hover:text-[#cf6734]">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-[#cf6734]">
-                Terms and Conditions
-              </Link>
-            </nav>
-        </div>
         </footer>
         <ConfettiTrigger formIds={["quotation-form", "newsletter-home"]} />
         <FormFeedback

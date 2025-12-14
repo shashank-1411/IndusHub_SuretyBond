@@ -15,20 +15,13 @@ const steps = [
     description:
       "Client initiates the process by submitting their surety bond proposal, including all necessary documents.",
     icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M6 2h9l3 3v17H6z" />
-        <path d="M15 2v5h5" />
-        <path d="M8 13h8M8 17h5M8 9h3" />
-      </svg>
+      <Image
+        src="/11.png"
+        alt="Proposal & Documents"
+        width={40}
+        height={40}
+        className="h-10 w-10 object-contain"
+      />
     ),
   },
   {
@@ -36,19 +29,13 @@ const steps = [
     description:
       "Internal team conducts an initial review and due diligence on the submitted proposal and documents.",
     icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="11" cy="11" r="6" />
-        <path d="m15.5 15.5 3 3" />
-      </svg>
+      <Image
+        src="/22.png"
+        alt="Internal Due Diligence"
+        width={40}
+        height={40}
+        className="h-10 w-10 object-contain"
+      />
     ),
   },
   {
@@ -56,20 +43,13 @@ const steps = [
     description:
       "Following internal approval, the comprehensive proposal package is formally submitted to the selected insurer(s) for their evaluation.",
     icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="m4 17 6-6 4 4 6-6" />
-        <path d="M14 5h6v6" />
-        <path d="M4 19h6v-6" />
-      </svg>
+      <Image
+        src="/33.png"
+        alt="Submission to Insurer"
+        width={40}
+        height={40}
+        className="h-10 w-10 object-contain"
+      />
     ),
   },
   {
@@ -77,19 +57,13 @@ const steps = [
     description:
       "The insurer conducts due diligence, assesses risk, and issues their decision/terms on the proposal.",
     icon: (
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-        className="h-8 w-8 text-[#cf6734]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 21c6-3 8-7 8-11a8 8 0 1 0-16 0c0 4 2 8 8 11Z" />
-        <circle cx="12" cy="10" r="3" />
-      </svg>
+      <Image
+        src="/44.png"
+        alt="Insurer Due Diligence"
+        width={40}
+        height={40}
+        className="h-10 w-10 object-contain"
+      />
     ),
   },
   {
@@ -206,42 +180,11 @@ const scrollingTestimonials = testimonials.map((item) => ({
 
 function AutoScrollSteps() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const container = containerRef.current;
-    if (!container) return;
-
-    const interval = setInterval(() => {
-      const firstCard = container.firstElementChild as HTMLElement | null;
-      if (!firstCard) return;
-      const cardWidth = firstCard.getBoundingClientRect().width;
-      const gap = 24; // gap-6
-      const scrollAmount = cardWidth + gap;
-
-      const maxScrollLeft = container.scrollWidth - container.clientWidth;
-      const nextScrollLeft = container.scrollLeft + scrollAmount;
-
-      if (nextScrollLeft >= maxScrollLeft - 4) {
-        container.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      }
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [isPaused]);
-
   return (
-    <div
-      className="group mt-10 overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <div className="group mt-10">
       <div
         ref={containerRef}
-        className="flex gap-6 overflow-hidden"
+        className="process-scroll flex gap-6 overflow-x-auto pb-2"
         role="list"
         aria-label="Steps to obtain a surety bond"
       >
@@ -251,11 +194,7 @@ function AutoScrollSteps() {
             className="min-w-[260px] max-w-[300px] flex-shrink-0 rounded-md border border-slate-200 bg-white p-5 text-slate-800 shadow-sm"
             role="listitem"
           >
-            <div className="mb-4 flex items-center">
-              <div className="rounded-md border border-[#cf6734]/30 bg-white p-2">
-                {step.icon}
-              </div>
-            </div>
+            <div className="mb-4 flex items-center">{step.icon}</div>
             <h3 className="text-sm font-semibold text-slate-900">
               {step.title}
             </h3>
@@ -306,7 +245,7 @@ export default function SuretyBondsPage() {
 
         {/* Steps To Obtain A Surety Bond */}
         <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
+          <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#cf6734]">
             Process
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-900">
@@ -317,28 +256,28 @@ export default function SuretyBondsPage() {
 
         {/* Types of Surety Bonds */}
         <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
-            Our Offerings
-          </p>
-          <div className="mt-3 flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-xl">
-              <h2 className="text-2xl font-semibold text-slate-900">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center">
+            <div className="space-y-4">
+              <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#cf6734]">
+                Our Offerings
+              </p>
+              <h2 className="text-3xl font-semibold text-slate-900">
                 Types Of Surety Bonds
               </h2>
-              <p className="mt-4 text-sm leading-relaxed text-slate-700">
+              <p className="max-w-3xl text-sm leading-relaxed text-slate-700">
                 Surety bonds broadly fall into two main categories: contract bonds and
                 commercial bonds. We structure each bond to match the specific risk
                 profile and requirements of your project.
               </p>
             </div>
 
-            <div className="relative mx-auto flex w-full max-w-[420px] items-center justify-center">
+            <div className="relative mx-auto flex w-full max-w-[540px] items-center justify-center">
               <Image
-                src="/pyramid-removebg-preview 1.png"
+                src="/Group 1707479657.png"
                 alt="Bond types pyramid"
-                width={340}
-                height={340}
-                className="h-auto w-[260px] md:w-[320px] lg:w-[360px] object-contain"
+                width={560}
+                height={560}
+                className="h-auto w-[340px] md:w-[460px] lg:w-[540px] object-contain"
                 priority
               />
             </div>
@@ -346,7 +285,7 @@ export default function SuretyBondsPage() {
         </section>
 
         {/* Bond Types Detail */}
-        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
+          <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
           <div className="grid gap-12 md:grid-cols-2">
             <article>
               <h3 className="text-lg font-semibold text-slate-900">Bid Bond</h3>
@@ -438,18 +377,28 @@ export default function SuretyBondsPage() {
 
         {/* Why Choose Us */}
         <section className="border-b border-slate-100 bg-[#f7f5f2] px-6 py-16 md:px-20">
-          <h2 className="text-2xl font-semibold text-slate-900">
-            Why Choose Us?
-          </h2>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-700">
-            Our one-stop marketplace and comprehensive ecosystem are built
-            around reliability, transparency, and ease-of-use. With
-            customer-centric approach and partnerships with leading insurers, we
-            help you access quality services and verified suppliers.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <CtaButton label="Download Brochure" />
-            <CtaButton label="Download Principle List" />
+          <div className="grid gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:items-center">
+            <h2 className="text-3xl font-semibold text-slate-900">
+              Why Choose Us?
+            </h2>
+            <div className="space-y-4">
+              <p className="text-sm leading-relaxed text-slate-700">
+                Our platform is the One-Stop Marketplace and Comprehensive
+                Ecosystem you need, built on a foundation of Reliability &
+                Transparency. We take a Customer-Centric Approach to provide you
+                with Tailored Solutions, ensuring you always access Quality
+                Services & Verified Suppliers.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <CtaButton label="Download Brochure" />
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-sm border border-[#cf6734] px-4 py-2.5 text-[12px] font-semibold uppercase tracking-[0.26em] text-[#cf6734] hover:bg-[#cf6734]/10 transition-colors"
+                >
+                  Download Principle List
+                </button>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -520,26 +469,45 @@ export default function SuretyBondsPage() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-white px-6 py-12 text-slate-800 md:px-12">
-          <div className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-start">
-            {/* Left logo block */}
-            <div>
+        <footer className="bg-white px-6 py-12 text-slate-800 md:px-20">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start">
+            {/* Left */}
+            <div className="space-y-4">
               <Image
                 src="/1111 1.png"
                 alt="Indus Hub logo"
-                width={180}
-                height={40}
-                className="h-10 w-auto"
+                width={170}
+                height={38}
+                className="h-9 w-auto"
               />
-              <p className="mt-2 text-sm text-slate-700">Your Growth Partner</p>
+              <p className="text-sm font-semibold text-slate-700">Your Growth Partner</p>
+              <hr className="w-72 border-slate-200" />
+              <div className="flex flex-wrap gap-6 text-xs text-slate-700">
+                <Link href="/about" className="font-semibold hover:text-[#cf6734]">
+                  About
+                </Link>
+                <Link href="/indushub-services" className="font-semibold hover:text-[#cf6734]">
+                  Services
+                </Link>
+                <Link href="/privacy" className="font-semibold hover:text-[#cf6734]">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms" className="font-semibold hover:text-[#cf6734]">
+                  Terms and Conditions
+                </Link>
+              </div>
             </div>
 
-            {/* Right contact block */}
-            <div className="text-xs text-slate-700">
-              <p className="font-semibold text-slate-900">Call:</p>
-              <p className="mt-1 text-sm text-slate-800">+91 99256 24974</p>
-              <p className="mt-4 font-semibold text-slate-900">Email:</p>
-              <p className="mt-1 text-sm text-slate-800">pravin@indushub.in</p>
+            {/* Right */}
+            <div className="space-y-3 text-[13px] font-semibold text-slate-800">
+              <div>
+                <p className="font-semibold">Call:</p>
+                <p className="mt-1 text-sm font-semibold text-slate-800">+91 99256 24974</p>
+              </div>
+              <div>
+                <p className="font-semibold">Email:</p>
+                <p className="mt-1 text-sm font-semibold text-slate-800">pravin@indushub.in</p>
+              </div>
               <form
                 id="newsletter-surety"
                 action="https://formspree.io/f/mnnebzgb"
@@ -575,33 +543,20 @@ export default function SuretyBondsPage() {
               </form>
               <p
                 id="newsletter-surety-status"
-                className="mt-2 hidden text-xs font-semibold text-green-600"
+                className="hidden text-xs font-semibold text-green-600"
               >
                 Submitted. Thank you!!
               </p>
             </div>
           </div>
-
-          {/* Bottom links */}
-          <div className="mt-10 flex flex-wrap gap-8 border-t border-slate-300 pt-5 text-xs text-slate-700">
-            <Link href="/about" className="hover:text-[#cf6734]">
-              About
-            </Link>
-            <Link href="/indushub-services" className="hover:text-[#cf6734]">
-              Services
-            </Link>
-            <Link href="/privacy" className="hover:text-[#cf6734]">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-[#cf6734]">
-              Terms and Conditions
-            </Link>
-          </div>
         </footer>
         <ConfettiTrigger formIds={["newsletter-surety"]} />
         <FormFeedback
           mappings={[
-            { formId: "newsletter-surety", messageId: "newsletter-surety-status" },
+            {
+              formId: "newsletter-surety",
+              messageId: "newsletter-surety-status",
+            },
           ]}
         />
       </main>
