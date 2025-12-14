@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { CalendlyCta } from "@/components/calendly-cta";
 import { CtaButton } from "@/components/cta-button";
@@ -118,22 +121,147 @@ const steps = [
   {
     title: "Proposal & Documents",
     description:
-      "Share your project details, financials, and related documents so we can understand your requirements.",
+      "Client initiates the process by submitting their surety bond proposal, including all necessary documents.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-[#cf6734]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M6 2h9l3 3v17H6z" />
+        <path d="M15 2v5h5" />
+        <path d="M8 13h8M8 17h5M8 9h3" />
+      </svg>
+    ),
   },
   {
     title: "Internal Due Diligence",
     description:
-      "Our team evaluates your profile, analyses project risks, and designs an optimal surety structure.",
+      "Internal team conducts an initial review and due diligence on the submitted proposal and documents.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-[#cf6734]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="11" cy="11" r="6" />
+        <path d="m15.5 15.5 3 3" />
+      </svg>
+    ),
   },
   {
     title: "Submission to Insurer",
     description:
-      "We prepare a detailed proposal and coordinate with leading insurers to secure competitive terms.",
+      "Following internal approval, the comprehensive proposal package is formally submitted to the selected insurer(s) for their evaluation.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-[#cf6734]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="m4 17 6-6 4 4 6-6" />
+        <path d="M14 5h6v6" />
+        <path d="M4 19h6v-6" />
+      </svg>
+    ),
   },
   {
     title: "Insurer Due Diligence",
     description:
-      "The insurance partner completes underwriting and issues the surety bond upon approval.",
+      "The insurer conducts due diligence, assesses risk, and issues their decision/terms on the proposal.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-[#cf6734]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 21c6-3 8-7 8-11a8 8 0 1 0-16 0c0 4 2 8 8 11Z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+    ),
+  },
+  {
+    title: "Quotation Issuance",
+    description:
+      "Upon approval, the insurer issues a quotation detailing premium, terms, and conditions for the surety bond.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-[#cf6734]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M5 3h14v18H5z" />
+        <path d="M9 7h6M9 11h6M9 15h4" />
+      </svg>
+    ),
+  },
+  {
+    title: "Premium Payment",
+    description:
+      "The client accepts the quotation, then proceeds to make the required premium payment to the insurer.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-[#cf6734]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M3 7h18v10H3z" />
+        <path d="M7 7V5m10 2V5" />
+        <path d="M7 12h10" />
+        <path d="M9.5 10.5v3" />
+        <path d="M14.5 10.5v3" />
+      </svg>
+    ),
+  },
+  {
+    title: "Surety Bond Issuance",
+    description:
+      "After payment is processed, the insurer officially issues the surety bond to the beneficiary.",
+    icon: (
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        className="h-8 w-8 text-[#cf6734]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 2 3 6v6c0 5 3.5 9 9 10 5.5-1 9-5 9-10V6z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+    ),
   },
 ];
 
@@ -179,6 +307,71 @@ const scrollingTestimonials = testimonials.map((item) => ({
   name: item.name,
   role: item.sector,
 }));
+
+function AutoScrollSteps() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const container = containerRef.current;
+    if (!container) return;
+
+    const interval = setInterval(() => {
+      const firstCard = container.firstElementChild as HTMLElement | null;
+      if (!firstCard) return;
+      const cardWidth = firstCard.getBoundingClientRect().width;
+      const gap = 24; // gap-6
+      const scrollAmount = cardWidth + gap;
+
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+      const nextScrollLeft = container.scrollLeft + scrollAmount;
+
+      if (nextScrollLeft >= maxScrollLeft - 4) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  return (
+    <div
+      className="group mt-10 overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div
+        ref={containerRef}
+        className="flex gap-6 overflow-hidden"
+        role="list"
+        aria-label="Steps to obtain a surety bond"
+      >
+        {steps.map((step) => (
+          <article
+            key={step.title}
+            className="min-w-[260px] max-w-[300px] flex-shrink-0 rounded-md border border-slate-200 bg-white p-5 text-slate-800 shadow-sm"
+            role="listitem"
+          >
+            <div className="mb-4 flex items-center">
+              <div className="rounded-md border border-[#cf6734]/30 bg-white p-2">
+                {step.icon}
+              </div>
+            </div>
+            <h3 className="text-sm font-semibold text-slate-900">
+              {step.title}
+            </h3>
+            <p className="mt-3 text-xs leading-relaxed text-slate-600">
+              {step.description}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const clientLogos = [
   "/Frame 31.png",
@@ -515,37 +708,14 @@ export default function Home() {
         </section>
 
         {/* Process */}
-        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
+        <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
             Process
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-900">
             Steps To Obtain A Surety Bond
           </h2>
-
-          <div className="mt-10 rounded-sm border border-slate-200 bg-[#f7f5f2] pb-8 pt-6">
-            <div className="grid gap-8 md:grid-cols-4 md:divide-x md:divide-slate-200">
-              {steps.map((step, index) => (
-                <article
-                  key={step.title}
-                  className="px-2 text-sm leading-relaxed md:px-6"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-[#cf6734] bg-white text-[11px] font-semibold text-[#cf6734]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-700">
-                      {step.title}
-                    </span>
-                  </div>
-                  <p className="mt-3 text-xs leading-relaxed text-slate-600 md:text-sm">
-                    {step.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-            <div className="mx-2 mt-6 h-[2px] bg-gradient-to-r from-[#cf6734] via-[#f97316] to-transparent md:mx-6" />
-          </div>
+          <AutoScrollSteps />
         </section>
 
         {/* About Indushub */}
