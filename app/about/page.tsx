@@ -363,15 +363,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Bottom links */}
-          <div className="mt-10 flex flex-wrap gap-8 border-t border-slate-300 pt-5 text-xs text-slate-700">
-            <Link href="/about" className="hover:text-[#cf6734]">About</Link>
-            <Link href="/indushub-services" className="hover:text-[#cf6734]">Services</Link>
-            <Link href="/privacy" className="hover:text-[#cf6734]">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-[#cf6734]">
-              Terms and Conditions
-            </Link>
-          </div>
         </footer>
         <ConfettiTrigger formIds={["newsletter-about"]} />
         <FormFeedback
