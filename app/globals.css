@@ -73,7 +73,7 @@ body {
 
 .hover-tilt-scale {
   transition: transform 0.5s ease, box-shadow 0.4s ease;
-}
+  }
 
 .hover-tilt-scale:hover {
   transform: translateY(-4px) scale(1.02);
@@ -86,6 +86,24 @@ body {
 
 .hover-tilt-scale:hover .spin-on-hover {
   transform: scale(1.12) rotate(360deg);
+}
+
+@keyframes steps-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.steps-track {
+  width: max-content;
+  animation: steps-scroll 14s linear infinite;
+}
+
+.group:hover .steps-track {
+  animation-play-state: paused;
 }
 
 @keyframes carousel-spin {

@@ -1,18 +1,31 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 type CtaButtonProps = {
   label: string;
   href?: string;
   type?: "button" | "submit" | "reset";
+  onClick?: () => void;
+  className?: string;
 };
 
-export function CtaButton({ label, href, type = "button" }: CtaButtonProps) {
+export function CtaButton({
+  label,
+  href,
+  type = "button",
+  onClick,
+  className,
+}: CtaButtonProps) {
   const content = (
     <Button
       size="lg"
-      className="group relative inline-flex overflow-hidden rounded-sm bg-[#cf6734] px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.26em] text-white hover:bg-[#b45828]"
+      className={cn(
+        "group relative inline-flex overflow-hidden rounded-sm bg-[#cf6734] px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.26em] text-white hover:bg-[#b45828]",
+        className
+      )}
       type={href ? "button" : type}
+      onClick={onClick}
     >
       <span className="relative z-20 pr-6 transition-all duration-500 group-hover:translate-x-1 group-hover:opacity-0">
         {label}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
+import { CalendlyCta } from "@/components/calendly-cta";
 import { CtaButton } from "@/components/cta-button";
 import { TestimonialsColumn } from "@/components/testimonials-column";
 import { ConfettiTrigger } from "@/components/confetti-trigger";
@@ -193,13 +194,13 @@ export default function Home() {
 
       <main className="bg-white shadow-sm">
         {/* Hero (text band) */}
-        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
-          <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)]">
+        <section className="border-b border-slate-100 bg-[#f4f4f4] px-4 py-14 sm:px-6 md:px-20">
+          <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)]">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#cf6734]">
                 About Us
               </p>
-              <h1 className="mt-4 text-[32px] font-semibold leading-[1.25] text-slate-900 md:text-[36px]">
+              <h1 className="mt-4 text-3xl font-semibold leading-tight text-slate-900 sm:text-[32px] md:text-[36px]">
                 Financial Solutions
                 <br />
                 For Betterment Of
@@ -213,15 +214,15 @@ export default function Home() {
                 opportunities with our expert surety bond solutions tailored to
                 your business needs.
               </p>
-              <div className="mt-6">
-                <CtaButton label="Book A Discovery Call" href="/book-call" />
+              <div className="mt-6 max-w-xs sm:max-w-none">
+                <CalendlyCta label="Book A Discovery Call" />
               </div>
             </div>
           </div>
         </section>
 
         {/* Hero image */}
-        <section className="relative h-64 w-full border-b border-slate-100 md:h-[360px] lg:h-[420px]">
+        <section className="relative h-64 w-full border-b border-slate-100 bg-[#f4f4f4] md:h-[360px] lg:h-[420px]">
           <Image
             src="/constantinos-kollias-yqBvJJ8jGBQ-unsplash 1.png"
             alt="Ancient city landscape"
@@ -231,7 +232,7 @@ export default function Home() {
         </section>
 
         {/* Key Players */}
-        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
+        <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
           <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.5fr)] md:items-start">
             {/* Left copy column */}
             <div className="max-w-sm">
@@ -260,8 +261,8 @@ export default function Home() {
         </section>
 
         {/* Mission / Vision */}
-        <section className="border-b border-[#e5edf3] bg-white px-6 py-16 md:px-20">
-          <div className="grid gap-12 md:grid-cols-2">
+        <section className="border-b border-[#e5edf3] bg-white px-4 py-16 sm:px-6 md:px-20">
+          <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
             {/* Mission */}
             <div className="group">
               <div className="mb-6 flex h-8 w-8 items-center justify-center">
@@ -313,7 +314,7 @@ export default function Home() {
         </section>
 
         {/* Why Choose Surety Bonds */}
-        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
+        <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
             Benefits
           </p>
@@ -367,7 +368,7 @@ export default function Home() {
 
         {/* Quotation Form (front-end only) */}
         <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
-          <div className="rounded-sm border border-[#e5edf3] bg-gradient-to-b from-[#fdfdfd] to-[#f7f5f2] px-5 pb-10 pt-7 shadow-sm md:px-10">
+          <div className="rounded-sm border border-slate-200 bg-white px-5 pb-10 pt-7 shadow-sm md:px-10">
             <div className="md:flex md:items-end md:justify-between">
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
