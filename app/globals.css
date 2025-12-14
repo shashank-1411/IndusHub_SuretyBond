@@ -6,6 +6,23 @@ body {
     BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+/* Prevent horizontal overflow */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure images shrink within containers */
+img,
+picture,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .page-offset {
   padding-top: 76px;
 }
