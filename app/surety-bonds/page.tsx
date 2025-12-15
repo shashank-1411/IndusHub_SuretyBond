@@ -474,11 +474,11 @@ export default function SuretyBondsPage() {
             {/* Left */}
             <div className="space-y-4">
               <Image
-                src="/1111 1.png"
+                src="/logo updated.png"
                 alt="Indus Hub logo"
-                width={170}
-                height={38}
-                className="h-9 w-auto"
+                width={110}
+                height={24}
+                className="h-6 w-auto"
               />
               <p className="text-sm font-semibold text-slate-700">Your Growth Partner</p>
               <hr className="w-72 border-slate-200" />

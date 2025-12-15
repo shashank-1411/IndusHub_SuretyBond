@@ -17,19 +17,19 @@ const keyPlayers = [
     title: "Principal",
     description:
       "The party who requests the bond and undertakes the primary obligation.",
-    image: "/p-removebg-preview.png",
+    image: "/p-removebg-preview.svg",
   },
   {
     title: "Surety Company",
     description:
       "The insurance company that guarantees the principal’s obligation.",
-    image: "/s-removebg-preview.png",
+    image: "/s-removebg-preview.svg",
   },
   {
     title: "Obligee",
     description:
       "The beneficiary that receives financial protection from the bond.",
-    image: "/Frame 53.png",
+    image: "/o-removebg-preview.svg",
   },
 ];
 
@@ -349,8 +349,8 @@ export default function Home() {
                 Key Players
               </p>
               <p className="mt-5 text-base md:text-lg leading-relaxed text-slate-800">
-                The transactions always involve three parties: the Principal,
-                the contractor, and the surety provider (Insurance Company).
+                The transactions always involves three parties: The Principal,
+                The contractor, and the surety provider (Insurance Company).
               </p>
             </div>
 
@@ -719,11 +719,11 @@ export default function Home() {
             {/* Left */}
             <div className="space-y-4">
               <Image
-                src="/1111 1.png"
+                src="/logo updated.png"
                 alt="Indus Hub logo"
-                width={170}
-                height={38}
-                className="h-9 w-auto"
+                width={110}
+                height={24}
+                className="h-6 w-auto"
               />
               <p className="text-sm font-semibold text-slate-700">Your Growth Partner</p>
               <hr className="w-72 border-slate-200" />

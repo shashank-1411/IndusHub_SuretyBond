@@ -15,11 +15,11 @@ export function SiteHeader() {
       <div className="flex items-center justify-between px-5 py-4 md:px-12 lg:px-20">
         <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
           <Image
-            src="/1111 1.png"
+            src="/logo updated.png"
             alt="Indus Hub logo"
-            width={108}
-            height={26}
-            className="h-7 w-auto"
+            width={80}
+            height={20}
+            className="h-5 w-auto"
             priority
           />
         </Link>
