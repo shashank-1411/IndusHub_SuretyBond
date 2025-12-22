@@ -156,6 +156,16 @@ canvas {
   animation: beneficiary-zoom 3s ease-in-out forwards;
 }
 
+/* Hide scrollbar for thumbnail strip */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Sticky CTA Bar animations */
 @keyframes slideUpFadeIn {
   from {

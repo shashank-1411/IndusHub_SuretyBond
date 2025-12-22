@@ -260,31 +260,31 @@ const beneficiaryCategories = [
     title: "Government Departments & PSUs",
     description:
       "Central and state departments, ministries, and public sector undertakings that need assurance on contractor performance and compliance.",
-    image: "/saara-sanamo-SgQJoLH1PU8-unsplash 1.png",
+    image: "/pexels-ashokjkshetri-12964295.jpg",
   },
   {
     title: "Public Sector Undertakings",
     description:
       "Large government-linked enterprises executing strategic, capital-intensive projects across sectors.",
-    image: "/8140d9ae-0fe7-4ed4-b0b6-d16c14747555 1.png",
+    image: "/pexels-ashokjkshetri-14416888.jpg",
   },
   {
     title: "Infrastructure Authorities",
     description:
       "Authorities overseeing roads, ports, metros, airports, and utilities where surety bonds protect long-duration projects.",
-    image: "/bridge.PNG",
+    image: "/pexels-haberdoedas-33287267.jpg",
   },
   {
     title: "Project Owners & Developers",
     description:
       "Entities sponsoring projects who require performance, payment, and maintenance protection from their contractors.",
-    image: "/Mask group.png",
+    image: "/pexels-josh-hild-1270765-2422255.jpg",
   },
   {
     title: "EPC & Main Contractors",
     description:
       "Engineering, procurement, and construction players who use surety to unlock capacity and meet contract requirements.",
-    image: "/Rectangle 23085.png",
+    image: "/pexels-rakin-raihan-480830755-15861341.jpg",
   },
   {
     title: "Private Corporates",
