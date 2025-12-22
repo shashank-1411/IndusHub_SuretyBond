@@ -368,11 +368,11 @@ export default function PrivacyPage() {
             {/* Left logo block */}
             <div>
               <Image
-                src="/1111 1.png"
+                src="/logo updated.png"
                 alt="Indus Hub logo"
-                width={180}
-                height={40}
-                className="h-10 w-auto"
+                width={110}
+                height={24}
+                className="h-6 w-auto"
               />
               <p className="mt-2 text-sm text-slate-700">Your Growth Partner</p>
             </div>

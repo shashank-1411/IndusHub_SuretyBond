@@ -462,7 +462,7 @@ export default function Home() {
               A clear, staged process from requirement to issuance, with support at every step.
             </p>
 
-            <div className="mt-10 space-y-6">
+            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
               {[
                 {
                   step: "1",
