@@ -385,8 +385,6 @@ export default function PrivacyPage() {
               <p className="mt-1 text-sm text-slate-800">pravin@indushub.in</p>
               <form
                 id="newsletter-privacy"
-                action="https://formspree.io/f/mnnebzgb"
-                method="POST"
                 className="mt-4 flex max-w-xs items-stretch gap-0"
               >
                 <input

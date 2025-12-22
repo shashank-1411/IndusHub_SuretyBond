@@ -11,7 +11,6 @@ import { ConfettiTrigger } from "@/components/confetti-trigger";
 import { FormFeedback } from "@/components/form-feedback";
 import { FlippingCard } from "@/components/flipping-card";
 import { ParallaxTiltCard } from "@/components/ui/parallax-tilt-card";
-import { FORMS_ENDPOINT } from "@/lib/forms-endpoint";
 
 const keyPlayers = [
   {
@@ -811,8 +810,6 @@ export default function Home() {
 
             <form
               id="quotation-form"
-              action={FORMS_ENDPOINT}
-              method="POST"
               className="mt-8 grid gap-x-8 gap-y-5 text-[11px] md:grid-cols-2"
             >
               <input type="hidden" name="formType" value="quotation" />
@@ -1070,8 +1067,6 @@ export default function Home() {
               </div>
               <form
                 id="newsletter-home"
-                  action={FORMS_ENDPOINT}
-                method="POST"
                 className="mt-4 flex max-w-xs items-stretch gap-0"
               >
                 <input type="hidden" name="formType" value="newsletter" />

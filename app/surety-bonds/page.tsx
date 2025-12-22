@@ -510,8 +510,6 @@ export default function SuretyBondsPage() {
               </div>
               <form
                 id="newsletter-surety"
-                action="https://formspree.io/f/mnnebzgb"
-                method="POST"
                 className="mt-4 flex max-w-xs items-stretch gap-0"
               >
                 <input

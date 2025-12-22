@@ -27,55 +27,30 @@ export function FormFeedback({
       const messageEl = document.getElementById(messageId);
       if (!form || !messageEl) return;
 
-      const onSubmit = async (e: Event) => {
+      const onSubmit = (e: Event) => {
         e.preventDefault();
 
-        try {
-          const formData = new FormData(form);
-          const body = new URLSearchParams(formData as any);
+        // Clear inputs
+        form.querySelectorAll("input").forEach((input) => {
+          if (input.type !== "hidden") input.value = "";
+        });
+        form.querySelectorAll("textarea").forEach((ta) => (ta.value = ""));
 
-          const resp = await fetch(form.action, {
-            method: form.method || "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body,
-          });
+        // Show success
+        messageEl.textContent = message;
+        messageEl.classList.remove("hidden");
 
-          if (!resp.ok) {
-            throw new Error(`Request failed: ${resp.status}`);
-          }
+        // Fire confetti in sync with the visible success text
+        confetti({
+          particleCount: 120,
+          spread: 70,
+          origin: { y: 0.65 },
+          colors: ["#cf6734", "#003749", "#ffffff"],
+        });
 
-          // Clear inputs
-          form.querySelectorAll("input").forEach((input) => {
-            if (input.type !== "hidden") input.value = "";
-          });
-          form.querySelectorAll("textarea").forEach((ta) => (ta.value = ""));
-
-          // Show success
-          messageEl.textContent = message;
-          messageEl.classList.remove("hidden");
-
-          // Fire confetti in sync with the visible success text
-          confetti({
-            particleCount: 120,
-            spread: 70,
-            origin: { y: 0.65 },
-            colors: ["#cf6734", "#003749", "#ffffff"],
-          });
-
-          window.setTimeout(() => {
-            messageEl.classList.add("hidden");
-          }, DISPLAY_MS);
-        } catch (err) {
-          // Show a brief error message
-          messageEl.textContent = "Something went wrong. Please try again.";
-          messageEl.classList.remove("hidden");
-          window.setTimeout(() => {
-            messageEl.classList.add("hidden");
-          }, 3000);
-          console.error(err);
-        }
+        window.setTimeout(() => {
+          messageEl.classList.add("hidden");
+        }, DISPLAY_MS);
       };
 
       form.addEventListener("submit", onSubmit);

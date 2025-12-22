@@ -323,8 +323,6 @@ export default function AboutPage() {
               </div>
               <form
                 id="newsletter-about"
-                action="https://formspree.io/f/mnnebzgb"
-                method="POST"
                 className="mt-4 flex max-w-md items-stretch gap-0 overflow-hidden rounded-sm border border-slate-200"
               >
                 <input

@@ -36,8 +36,6 @@ export default function ContactPage() {
             {/* Contact Form - styled to match reference */}
             <div className="mt-10 w-full max-w-5xl">
               <form
-                action="https://formspree.io/f/mnnebzgb"
-                method="POST"
                 className="grid gap-4 text-[11px] md:grid-cols-2"
               >
                 <div className="flex flex-col gap-1">
@@ -208,8 +206,6 @@ export default function ContactPage() {
               </div>
               <form
                 id="newsletter-contact"
-                action="https://formspree.io/f/mnnebzgb"
-                method="POST"
                 className="mt-4 flex max-w-md items-stretch gap-0 overflow-hidden rounded-sm border border-slate-200"
               >
                 <input
