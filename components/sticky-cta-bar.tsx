@@ -83,20 +83,18 @@ export function StickyCtaBar({
   }
 
   return (
-    <div className="sticky-cta-bar fixed bottom-0 left-0 right-0 z-[9998] bg-white shadow-[0_-2px_8px_rgba(0,0,0,0.1)]">
-      <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between sm:gap-4">
-          <div className="text-center sm:text-left">
-            <p className="text-sm font-semibold text-slate-900 sm:text-base">
-              Ready to get started?
-            </p>
-            <p className="mt-0.5 text-xs text-slate-600 sm:text-sm">
-              Book a call with our team
-            </p>
-          </div>
-          <div className="flex-shrink-0">
-            <CalendlyCta label="Book a Call" />
-          </div>
+    <div className="sticky-cta-bar fixed bottom-6 left-1/2 -translate-x-1/2 z-[9998]">
+      <div className="flex flex-col items-center gap-3 rounded-xl bg-white border border-slate-200 px-5 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08)] sm:flex-row sm:gap-4 sm:px-6 sm:py-4">
+        <div className="text-center sm:text-left">
+          <p className="text-sm font-semibold text-slate-900 sm:text-base">
+            Ready to get started?
+          </p>
+          <p className="mt-0.5 text-xs text-slate-600 sm:text-sm">
+            Book a call with our team
+          </p>
+        </div>
+        <div className="flex-shrink-0">
+          <CalendlyCta label="Book a Call" />
         </div>
       </div>
     </div>
