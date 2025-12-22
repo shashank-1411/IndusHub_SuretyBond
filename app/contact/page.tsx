@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { CtaButton } from "@/components/cta-button";
-import { TestimonialsSection } from "@/components/testimonials-section";
 import { FooterSection } from "@/components/footer-section";
 
 export default function ContactPage() {
@@ -159,9 +158,6 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
-
-        {/* Testimonials */}
-        <TestimonialsSection />
 
         {/* Final Image Strip */}
         <section className="relative h-64 w-full border-b border-slate-100 md:h-80">
