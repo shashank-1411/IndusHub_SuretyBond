@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { CtaButton } from "@/components/cta-button";
-import { ConfettiTrigger } from "@/components/confetti-trigger";
-import { FormFeedback } from "@/components/form-feedback";
+import { TestimonialsSection } from "@/components/testimonials-section";
+import { FooterSection } from "@/components/footer-section";
 
 export default function ContactPage() {
   const [messageLength, setMessageLength] = useState(0);
@@ -161,81 +160,23 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Footer image */}
-        <section className="relative h-56 w-full border-b border-slate-100 md:h-64">
+        {/* Testimonials */}
+        <TestimonialsSection />
+
+        {/* Final Image Strip */}
+        <section className="relative h-64 w-full border-b border-slate-100 md:h-80">
           <Image
             src="/Mask group.png"
             alt="Team meeting"
             fill
             className="object-cover"
-            priority
           />
         </section>
 
-        {/* Footer (match homepage) */}
-        <footer className="bg-white px-6 py-12 text-slate-800 md:px-20">
-          <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start">
-            {/* Left */}
-            <div className="space-y-4">
-              <Image
-                src="/logo updated.png"
-                alt="Indus Hub logo"
-                width={110}
-                height={24}
-                className="h-6 w-auto"
-              />
-              <p className="text-sm text-slate-700">Your Growth Partner</p>
-              <hr className="w-72 border-slate-200" />
-              <div className="flex flex-wrap gap-6 text-sm text-slate-700">
-                <Link href="/about" className="hover:text-[#cf6734]">About</Link>
-                <Link href="/indushub-services" className="hover:text-[#cf6734]">Services</Link>
-                <Link href="/privacy" className="hover:text-[#cf6734]">Privacy Policy</Link>
-                <Link href="/terms" className="hover:text-[#cf6734]">Terms and Conditions</Link>
-              </div>
-            </div>
-
-            {/* Right */}
-            <div className="space-y-3 text-[13px] text-slate-800">
-              <div>
-                <p className="font-normal">Call:</p>
-                <p className="mt-1 text-sm text-slate-800">+91 99256 24974</p>
-              </div>
-              <div>
-                <p className="font-normal">Email:</p>
-                <p className="mt-1 text-sm text-slate-800">pravin@indushub.in</p>
-              </div>
-              <form
-                id="newsletter-contact"
-                className="mt-4 flex max-w-md items-stretch gap-0 overflow-hidden rounded-sm border border-slate-200"
-              >
-                <input
-                  type="email"
-                  placeholder="Write Email"
-                  required
-                  name="email"
-                  className="h-9 w-full flex-1 border-0 bg-white px-3 text-[11px] text-slate-800 outline-none"
-                />
-                <button
-                  type="submit"
-                  className="h-9 bg-[#cf6734] px-4 text-[12px] font-semibold text-white hover:bg-[#b45828]"
-                >
-                  →
-                </button>
-              </form>
-              <p
-                id="newsletter-contact-status"
-                className="mt-2 hidden text-xs font-semibold text-green-600"
-              >
-                Submitted. Thank you!!
-              </p>
-            </div>
-          </div>
-        </footer>
-        <ConfettiTrigger formIds={["newsletter-contact"]} />
-        <FormFeedback
-          mappings={[
-            { formId: "newsletter-contact", messageId: "newsletter-contact-status" },
-          ]}
+        {/* Footer */}
+        <FooterSection 
+          newsletterFormId="newsletter-contact"
+          newsletterStatusId="newsletter-contact-status"
         />
       </main>
     </div>

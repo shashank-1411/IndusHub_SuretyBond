@@ -1,16 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { CalendlyCta } from "@/components/calendly-cta";
 import { CtaButton } from "@/components/cta-button";
-import { TestimonialsColumn } from "@/components/testimonials-column";
 import { ConfettiTrigger } from "@/components/confetti-trigger";
 import { FormFeedback } from "@/components/form-feedback";
 import { FlippingCard } from "@/components/flipping-card";
 import { ParallaxTiltCard } from "@/components/ui/parallax-tilt-card";
+import { StickyCtaBar } from "@/components/sticky-cta-bar";
+import { TestimonialsSection } from "@/components/testimonials-section";
+import { FooterSection } from "@/components/footer-section";
 
 const keyPlayers = [
   {
@@ -214,48 +215,6 @@ const steps = [
   },
 ];
 
-const testimonials = [
-  {
-    initials: "SJ",
-    badgeClass: "bg-[#e5f1ff] text-slate-700",
-    name: "Shri S. M. Autade Pvt Ltd",
-    sector: "Infrastructure",
-    quote:
-      "Indushub is the clear choice for surety bonds. For our infrastructure projects, speed is paramount, and Indushub has delivered to meet our expectations. They make a complex process smooth, incredibly fast, and result-oriented. Highly recommend Indushub.",
-  },
-  {
-    initials: "SP",
-    badgeClass: "bg-[#ffe9d6] text-slate-700",
-    name: "Sopan D & M Pvt Limited",
-    sector: "Oil and Gas",
-    quote:
-      "Indushub is a game-changer for surety bonds. Their smooth, fast, and result-oriented approach consistently delivers the fastest possible time. They truly understand the underwriting and product surety bond to the core.",
-  },
-  {
-    initials: "AC",
-    badgeClass: "bg-[#f0f4ff] text-slate-700",
-    name: "Arvind Constructions",
-    sector: "EPC",
-    quote:
-      "They handled documentation and insurer coordination end-to-end, freeing our team to focus on execution. The responsiveness and clarity from Indushub saved us critical time on bids.",
-  },
-];
-
-const makeAvatar = (initials: string) => {
-  const label = initials?.trim().slice(0, 3).toUpperCase() || "INH";
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'>
-    <rect width='120' height='120' rx='24' fill='#cf6734'/>
-    <text x='50%' y='55%' text-anchor='middle' font-family='Manrope, Arial, sans-serif' font-size='36' fill='white' font-weight='700' dominant-baseline='middle'>${label}</text>
-  </svg>`;
-  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
-};
-
-const scrollingTestimonials = testimonials.map((item) => ({
-  text: item.quote,
-  image: makeAvatar(item.initials),
-  name: item.name,
-  role: item.sector,
-}));
 
 function AutoScrollSteps() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -341,70 +300,6 @@ const beneficiaryCategories = [
   },
 ];
 
-function CoFounderVideoCard() {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlay = () => {
-    if (!videoRef.current) return;
-    videoRef.current.play();
-    videoRef.current.controls = true;
-    setIsPlaying(true);
-  };
-
-  const handlePause = () => {
-    setIsPlaying(false);
-  };
-
-  return (
-    <article className="flex h-[420px] flex-col items-center justify-between rounded-2xl border border-slate-200 bg-white px-6 py-5 text-center shadow-sm">
-      {/* Status pill */}
-      <div className="flex items-center justify-center gap-2 rounded-full bg-slate-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-        <span>Co-founder</span>
-      </div>
-
-      {/* Square video */}
-      <div
-        className="relative mt-4 w-full overflow-hidden rounded-3xl bg-slate-900"
-        style={{ aspectRatio: "1 / 1" }}
-      >
-        <video
-          ref={videoRef}
-          className="h-full w-full object-cover"
-          src="https://www.pexels.com/download/video/8814086/"
-          poster="/Group 1707479657.png"
-          loop
-          playsInline
-          onPause={handlePause}
-        />
-
-        {!isPlaying && (
-          <button
-            type="button"
-            onClick={handlePlay}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-md">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="ml-0.5 h-5 w-5 text-slate-900"
-              >
-                <path d="M9 7.5v9l7-4.5-7-4.5z" fill="currentColor" />
-              </svg>
-            </span>
-          </button>
-        )}
-      </div>
-
-      {/* Name */}
-      <p className="mt-4 text-[13px] font-semibold text-slate-900">
-        Peter Lucious
-      </p>
-    </article>
-  );
-}
 
 export default function Home() {
   const [activeBeneficiary, setActiveBeneficiary] = useState(
@@ -514,7 +409,7 @@ export default function Home() {
         </section>
 
         {/* Hero image */}
-        <section className="relative h-64 w-full border-b border-slate-100 bg-[#f4f4f4] md:h-[360px] lg:h-[420px]">
+        <section id="hero-image" className="relative h-64 w-full border-b border-slate-100 bg-[#f4f4f4] md:h-[360px] lg:h-[420px]">
           <Image
             src="/constantinos-kollias-yqBvJJ8jGBQ-unsplash 1.png"
             alt="Ancient city landscape"
@@ -1080,38 +975,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials */}
-        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
-          <div className="max-w-5xl">
-            <span className="block h-[31px] w-[585px] text-[128px] font-medium leading-none text-[#cf6734]">
-              “
-            </span>
-            <h2 className="mt-6 text-3xl font-semibold text-slate-900">
-              Why Clients Rely On Us
-            </h2>
-          </div>
-          <div className="mt-10 mr-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-[1fr_1fr_1fr] md:justify-items-start">
-            {/* Left moving column */}
-            <TestimonialsColumn
-              testimonials={scrollingTestimonials}
-              duration={18}
-              direction="up"
-              hoverSlowdown={1.8}
-              className="h-[420px]"
-            />
-
-            {/* Center co-founder video card (portrait style) */}
-            <CoFounderVideoCard />
-
-            {/* Right moving column */}
-            <TestimonialsColumn
-              testimonials={[...scrollingTestimonials].reverse()}
-              duration={20}
-              direction="down"
-              hoverSlowdown={1.8}
-              className="h-[420px] md:ml-auto md:mr-0"
-            />
-          </div>
-        </section>
+        <TestimonialsSection />
 
         {/* Final Image Strip */}
         <section className="relative h-64 w-full border-b border-slate-100 md:h-80">
@@ -1124,85 +988,13 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-white px-6 py-12 text-slate-800 md:px-20">
-          <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start">
-            {/* Left */}
-            <div className="space-y-4">
-              <Image
-                src="/logo updated.png"
-                alt="Indus Hub logo"
-                width={110}
-                height={24}
-                className="h-6 w-auto"
-              />
-              <p className="text-sm font-semibold text-slate-700">Your Growth Partner</p>
-              <hr className="w-72 border-slate-200" />
-              <div className="flex flex-wrap gap-6 text-xs text-slate-700">
-                <Link href="/about" className="font-semibold hover:text-[#cf6734]">About</Link>
-                <Link href="/indushub-services" className="font-semibold hover:text-[#cf6734]">Services</Link>
-                <Link href="/privacy" className="font-semibold hover:text-[#cf6734]">Privacy Policy</Link>
-                <Link href="/terms" className="font-semibold hover:text-[#cf6734]">Terms and Conditions</Link>
-              </div>
-            </div>
-
-            {/* Right */}
-            <div className="space-y-3 text-[13px] font-semibold text-slate-800">
-              <div>
-                <p className="font-semibold">Call:</p>
-                <p className="mt-1 text-sm font-semibold text-slate-800">+91 99256 24974</p>
-              </div>
-              <div>
-                <p className="font-semibold">Email:</p>
-                <p className="mt-1 text-sm font-semibold text-slate-800">pravin@indushub.in</p>
-              </div>
-              <form
-                id="newsletter-home"
-                className="mt-4 flex max-w-xs items-stretch gap-0"
-              >
-                <input type="hidden" name="formType" value="newsletter" />
-                <input
-                  type="email"
-                  placeholder="Write Email"
-                  required
-                  name="email"
-                  className="h-9 w-full flex-1 rounded-l-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                />
-                <button
-                  type="submit"
-                  className="h-9 rounded-r-sm bg-[#cf6734] px-4 text-[12px] font-semibold text-white hover:bg-[#b45828]"
-                >
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 16 16"
-                    className="h-3 w-3"
-                  >
-                    <path
-                      d="M5 3h8v8M5 11l8-8"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </form>
-              <p
-                id="newsletter-home-status"
-                className="hidden text-xs font-semibold text-green-600"
-              >
-                Submitted. Thank you!!
-              </p>
-            </div>
-          </div>
-        </footer>
-        <ConfettiTrigger formIds={["quotation-form"]} />
-        <FormFeedback
-          mappings={[
-            { formId: "newsletter-home", messageId: "newsletter-home-status" },
-          ]}
+        <FooterSection 
+          newsletterFormId="newsletter-home"
+          newsletterStatusId="newsletter-home-status"
+          confettiFormIds={["quotation-form"]}
         />
       </main>
+      <StickyCtaBar />
     </div>
   );
 }
