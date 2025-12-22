@@ -147,7 +147,8 @@ export function Chatbot() {
                 <input
                   className="h-9 w-full rounded-sm border border-slate-300 bg-white px-2 text-xs text-slate-800 outline-none focus:border-[#cf6734]"
                   placeholder="Enter your mobile number to continue"
-                  value={phone}
+                  // Always provide a string value to avoid uncontrolled -> controlled warnings
+                  value={phone ?? ""}
                   onChange={(e) => setPhone(e.target.value)}
                 />
                 {phoneError && (

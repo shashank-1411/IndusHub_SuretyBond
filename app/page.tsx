@@ -11,6 +11,7 @@ import { ConfettiTrigger } from "@/components/confetti-trigger";
 import { FormFeedback } from "@/components/form-feedback";
 import { FlippingCard } from "@/components/flipping-card";
 import { ParallaxTiltCard } from "@/components/ui/parallax-tilt-card";
+import { FORMS_ENDPOINT } from "@/lib/forms-endpoint";
 
 const keyPlayers = [
   {
@@ -296,7 +297,121 @@ const clientLogos = [
   "/Frame 37.png",
 ];
 
+const beneficiaryCategories = [
+  {
+    title: "Government Departments & PSUs",
+    description:
+      "Central and state departments, ministries, and public sector undertakings that need assurance on contractor performance and compliance.",
+    image: "/saara-sanamo-SgQJoLH1PU8-unsplash 1.png",
+  },
+  {
+    title: "Public Sector Undertakings",
+    description:
+      "Large government-linked enterprises executing strategic, capital-intensive projects across sectors.",
+    image: "/8140d9ae-0fe7-4ed4-b0b6-d16c14747555 1.png",
+  },
+  {
+    title: "Infrastructure Authorities",
+    description:
+      "Authorities overseeing roads, ports, metros, airports, and utilities where surety bonds protect long-duration projects.",
+    image: "/bridge.PNG",
+  },
+  {
+    title: "Project Owners & Developers",
+    description:
+      "Entities sponsoring projects who require performance, payment, and maintenance protection from their contractors.",
+    image: "/Mask group.png",
+  },
+  {
+    title: "EPC & Main Contractors",
+    description:
+      "Engineering, procurement, and construction players who use surety to unlock capacity and meet contract requirements.",
+    image: "/Rectangle 23085.png",
+  },
+  {
+    title: "Private Corporates",
+    description:
+      "Corporates seeking non-fund based support for complex contracts, vendor programs, and large capital spends.",
+    image: "/Group 1707479657.png",
+  },
+  {
+    title: "Financial Institutions & Lenders",
+    description:
+      "Banks and lenders who rely on surety structures to de-risk project financing and working capital lines.",
+    image: "/Frame 80.png",
+  },
+];
+
+function CoFounderVideoCard() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    if (!videoRef.current) return;
+    videoRef.current.play();
+    videoRef.current.controls = true;
+    setIsPlaying(true);
+  };
+
+  const handlePause = () => {
+    setIsPlaying(false);
+  };
+
+  return (
+    <article className="flex h-[420px] flex-col items-center justify-between rounded-2xl border border-slate-200 bg-white px-6 py-5 text-center shadow-sm">
+      {/* Status pill */}
+      <div className="flex items-center justify-center gap-2 rounded-full bg-slate-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-700">
+        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+        <span>Co-founder</span>
+      </div>
+
+      {/* Square video */}
+      <div
+        className="relative mt-4 w-full overflow-hidden rounded-3xl bg-slate-900"
+        style={{ aspectRatio: "1 / 1" }}
+      >
+        <video
+          ref={videoRef}
+          className="h-full w-full object-cover"
+          src="https://www.pexels.com/download/video/8814086/"
+          poster="/Group 1707479657.png"
+          loop
+          playsInline
+          onPause={handlePause}
+        />
+
+        {!isPlaying && (
+          <button
+            type="button"
+            onClick={handlePlay}
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-md">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="ml-0.5 h-5 w-5 text-slate-900"
+              >
+                <path d="M9 7.5v9l7-4.5-7-4.5z" fill="currentColor" />
+              </svg>
+            </span>
+          </button>
+        )}
+      </div>
+
+      {/* Name */}
+      <p className="mt-4 text-[13px] font-semibold text-slate-900">
+        Peter Lucious
+      </p>
+    </article>
+  );
+}
+
 export default function Home() {
+  const [activeBeneficiary, setActiveBeneficiary] = useState(
+    beneficiaryCategories[0].title
+  );
+
   return (
     <div className="page-offset min-h-screen bg-white text-slate-900">
       <SiteHeader />
@@ -306,25 +421,17 @@ export default function Home() {
         <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
           <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)]">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#cf6734]">
-                About Us
-              </p>
-              <h1 className="mt-4 text-3xl font-semibold leading-tight text-slate-900 sm:text-[32px] md:text-[36px]">
-                Financial Solutions
-                <br />
-                For Betterment Of
-                <br />
-                Your Company
+              <h1 className="text-3xl font-semibold leading-tight text-slate-900 sm:text-[32px] md:text-[36px]">
+                Trusted Surety Bonds for Secure Project Execution
               </h1>
             </div>
             <div className="max-w-md text-sm leading-relaxed text-slate-700 md:ml-auto">
               <p>
-                Build trust, meet commitments, and unlock new growth
-                opportunities with our expert surety bond solutions tailored to
-                your business needs.
+                Fast issuance, transparent process, reliable backing
               </p>
-              <div className="mt-6 max-w-xs sm:max-w-none">
-                <CalendlyCta label="Book A Discovery Call" />
+              <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:gap-3">
+                <CtaButton label="Get a Quote" href="#quotation-form" />
+                <CtaButton label="How It Works" href="#how-it-works" />
               </div>
             </div>
           </div>
@@ -338,6 +445,74 @@ export default function Home() {
             fill
             className="object-cover"
           />
+        </section>
+
+        {/* How It Works */}
+        <section
+          id="how-it-works"
+          className="border-b border-slate-100 bg-white px-6 py-16 md:px-20"
+        >
+          <div className="mx-auto max-w-5xl">
+            <p className="text-left text-[11px] font-bold uppercase tracking-[0.25em] text-[#cf6734]">
+              How It Works
+            </p>
+            <h2 className="mt-3 text-left text-3xl font-semibold text-slate-900">
+              Four simple steps to your surety bond
+            </h2>
+            <p className="mt-4 text-left text-sm leading-relaxed text-slate-700">
+              A clear, staged process from requirement to issuance, with support at every step.
+            </p>
+
+            <div className="mt-10 space-y-6">
+              {[
+                {
+                  step: "1",
+                  title: "Bond Requirement Identified",
+                  desc: "Client shares contract & bond requirement so we can understand the obligation and stakeholders.",
+                },
+                {
+                  step: "2",
+                  title: "Risk Evaluation",
+                  desc: "Financials, project scope, and compliance are reviewed with insurers to structure the right cover.",
+                },
+                {
+                  step: "3",
+                  title: "Bond Issuance",
+                  desc: "Once approved, the bond is issued within defined timelines so your project can move ahead.",
+                },
+                {
+                  step: "4",
+                  title: "Ongoing Support",
+                  desc: "We assist with renewals, amendments, or claims, staying aligned with your project lifecycle.",
+                },
+              ].map((item) => (
+                <article
+                  key={item.title}
+                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-[#f8f9fb] shadow-sm transition hover:-translate-y-0.5 hover:border-[#cf6734]/70 hover:shadow-md"
+                >
+                  <div className="flex flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:px-7 sm:py-6">
+                    <div className="flex-shrink-0">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-xs font-semibold text-slate-500 shadow-sm ring-1 ring-slate-200">
+                        {item.step}
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-base font-semibold text-slate-900">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-10 flex justify-center">
+              <CtaButton label="Start the Process" href="#quotation-form" />
+            </div>
+          </div>
         </section>
 
         {/* Key Players */}
@@ -475,6 +650,154 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Types of Surety Bonds */}
+        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
+              Types of Surety Bonds
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-slate-900">
+              Surety solutions for every stage of your contract
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-700">
+              From bidding to project completion, we structure surety bonds that protect
+              all parties and keep work moving without locking up excess capital.
+            </p>
+
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              {[
+                {
+                  title: "Bid Bonds",
+                  desc: "Protects the tendering authority if the winning bidder fails to honor the bid terms or sign the contract.",
+                },
+                {
+                  title: "Performance Bonds",
+                  desc: "Guarantees project completion as per contract specifications, timelines, and quality standards.",
+                },
+                {
+                  title: "Payment Bonds",
+                  desc: "Ensures subcontractors, suppliers, and workers are paid for work completed on the project.",
+                },
+                {
+                  title: "Maintenance / Defect Liability Bonds",
+                  desc: "Covers post-completion defects or performance issues during the maintenance or defect liability period.",
+                },
+                {
+                  title: "Advance Payment Bonds",
+                  desc: "Secures advances paid to the contractor, ensuring funds are used as per contract terms.",
+                },
+                {
+                  title: "Custom / Contract-Specific Bonds",
+                  desc: "Tailored surety structures for specialised projects, unique risk profiles, or bespoke contract clauses.",
+                },
+              ].map((bond) => (
+                <article
+                  key={bond.title}
+                  className="flex flex-col justify-between rounded-xl border border-slate-200 bg-[#f9fafb] p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-[#cf6734]/70 hover:shadow-md"
+                >
+                  <div>
+                    <h3 className="text-base font-semibold text-slate-900">
+                      {bond.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                      {bond.desc}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-10 flex justify-center md:justify-start">
+              <CtaButton label="Learn More" href="/surety-bonds" />
+            </div>
+          </div>
+        </section>
+
+        {/* Beneficiaries */}
+        <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
+          <div className="mx-auto max-w-6xl">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
+              Beneficiaries
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-slate-900">
+              Who benefits from surety bonds?
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-700">
+              Ensuring protection and compliance for all stakeholders involved in a contract.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-stretch">
+              <div className="flex flex-row gap-3 overflow-x-auto pb-2 md:flex-col md:pb-0">
+                {beneficiaryCategories.map((item) => (
+                  <button
+                    key={item.title}
+                    type="button"
+                    onClick={() => setActiveBeneficiary(item.title)}
+                    className={`relative flex min-w-[160px] items-end justify-start overflow-hidden rounded-xl border px-4 py-3 text-left text-sm font-semibold transition ${
+                      activeBeneficiary === item.title
+                        ? "border-[#cf6734] shadow-md"
+                        : "border-slate-200 shadow-sm hover:border-[#cf6734]/60"
+                    }`}
+                  >
+                    <div className="pointer-events-none absolute inset-0">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className={`object-cover transition duration-300 ${
+                          activeBeneficiary === item.title
+                            ? "opacity-100"
+                            : "opacity-60"
+                        }`}
+                      />
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10 transition ${
+                          activeBeneficiary === item.title
+                            ? "opacity-90"
+                            : "opacity-70"
+                        }`}
+                      />
+                    </div>
+                    <span className="relative z-10 whitespace-normal text-sm font-semibold text-white">
+                      {item.title}
+                    </span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-2 flex-1 overflow-hidden rounded-2xl border border-slate-200 shadow-sm md:mt-0 md:flex">
+                {beneficiaryCategories.map((item) =>
+                  item.title === activeBeneficiary ? (
+                    <div
+                      key={item.title}
+                      className="relative h-full min-h-[18rem] w-full md:min-h-[20rem] lg:min-h-[22rem]"
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                      <div className="absolute inset-x-5 bottom-5 space-y-2 text-white md:inset-x-7">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f6c19a]">
+                          Beneficiary Category
+                        </p>
+                        <h3 className="text-lg font-semibold md:text-xl">
+                          {item.title}
+                        </h3>
+                        <p className="text-xs leading-relaxed text-slate-100 md:text-sm">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  ) : null
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Quotation Form (front-end only) */}
         <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
           <div className="rounded-sm border border-slate-200 bg-white px-5 pb-10 pt-7 shadow-sm md:px-10">
@@ -488,10 +811,11 @@ export default function Home() {
 
             <form
               id="quotation-form"
-              action="https://formspree.io/f/mnnebzgb"
+              action={FORMS_ENDPOINT}
               method="POST"
               className="mt-8 grid gap-x-8 gap-y-5 text-[11px] md:grid-cols-2"
             >
+              <input type="hidden" name="formType" value="quotation" />
               <div className="flex flex-col gap-1">
                 <label className="font-medium text-slate-700">
                   Company Profile<span className="text-red-500">*</span>
@@ -520,7 +844,7 @@ export default function Home() {
                 </label>
                 <input
                   type="text"
-                  name="suretyProposalForm"
+                  name="suretyBondProposalForm"
                   className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
               </div>
@@ -555,7 +879,7 @@ export default function Home() {
                   Credit Rating Certificate (if available)
                 </label>
                 <select
-                  name="creditRating"
+                  name="creditRatingCertificate"
                   className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 >
                   <option value="">Select your city</option>
@@ -576,7 +900,7 @@ export default function Home() {
                 </label>
                 <input
                   type="text"
-                  name="financialsYear1"
+                  name="auditFinancials"
                   placeholder="Upload Year 1"
                   className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
@@ -584,7 +908,7 @@ export default function Home() {
               <div className="flex flex-col gap-1 md:pt-5">
                 <input
                   type="text"
-                  name="financialsYear2"
+                  name="auditFinancials2"
                   placeholder="Upload Year 2"
                   className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
@@ -622,7 +946,7 @@ export default function Home() {
         </section>
 
         {/* Process */}
-        <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
+        <section id="process" className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
           <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#cf6734]">
             Process
           </p>
@@ -678,7 +1002,8 @@ export default function Home() {
               Why Clients Rely On Us
             </h2>
           </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-3 max-w-6xl mx-auto">
+          <div className="mt-10 mr-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
+            {/* Left moving column */}
             <TestimonialsColumn
               testimonials={scrollingTestimonials}
               duration={18}
@@ -686,6 +1011,11 @@ export default function Home() {
               hoverSlowdown={1.8}
               className="h-[420px]"
             />
+
+            {/* Center co-founder video card (portrait style) */}
+            <CoFounderVideoCard />
+
+            {/* Right moving column */}
             <TestimonialsColumn
               testimonials={[...scrollingTestimonials].reverse()}
               duration={20}
@@ -693,14 +1023,7 @@ export default function Home() {
               hoverSlowdown={1.8}
               className="h-[420px]"
             />
-            <TestimonialsColumn
-              testimonials={scrollingTestimonials}
-              duration={22}
-              direction="up"
-              hoverSlowdown={1.8}
-              className="hidden h-[420px] md:block"
-            />
-        </div>
+          </div>
         </section>
 
         {/* Final Image Strip */}
@@ -747,10 +1070,11 @@ export default function Home() {
               </div>
               <form
                 id="newsletter-home"
-                action="https://formspree.io/f/mnnebzgb"
+                  action={FORMS_ENDPOINT}
                 method="POST"
                 className="mt-4 flex max-w-xs items-stretch gap-0"
               >
+                <input type="hidden" name="formType" value="newsletter" />
                 <input
                   type="email"
                   placeholder="Write Email"
@@ -787,7 +1111,7 @@ export default function Home() {
             </div>
           </div>
         </footer>
-        <ConfettiTrigger formIds={["quotation-form", "newsletter-home"]} />
+        <ConfettiTrigger formIds={["quotation-form"]} />
         <FormFeedback
           mappings={[
             { formId: "newsletter-home", messageId: "newsletter-home-status" },
