@@ -462,7 +462,7 @@ export default function Home() {
               A clear, staged process from requirement to issuance, with support at every step.
             </p>
 
-            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
               {[
                 {
                   step: "1",
@@ -508,7 +508,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-10 flex justify-center">
+            <div className="mt-10 flex justify-start">
               <CtaButton label="Start the Process" href="#quotation-form" />
             </div>
           </div>
