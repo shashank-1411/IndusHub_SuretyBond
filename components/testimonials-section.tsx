@@ -78,7 +78,7 @@ function CoFounderVideoCard() {
           ref={videoRef}
           className="h-full w-full object-cover"
           src="https://www.pexels.com/download/video/8814086/"
-          poster="/Group 1707479657.png"
+          poster="/kanye-west-vertical.jpg"
           loop
           playsInline
           onPause={handlePause}
