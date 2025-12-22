@@ -442,6 +442,8 @@ export default function Home() {
             src="/constantinos-kollias-yqBvJJ8jGBQ-unsplash 1.png"
             alt="Ancient city landscape"
             fill
+            priority
+            sizes="100vw"
             className="object-cover"
           />
         </section>
