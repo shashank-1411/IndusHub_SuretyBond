@@ -11,7 +11,7 @@ import { ConfettiTrigger } from "@/components/confetti-trigger";
 import { FormFeedback } from "@/components/form-feedback";
 import { FlippingCard } from "@/components/flipping-card";
 import { ParallaxTiltCard } from "@/components/ui/parallax-tilt-card";
-import { FORMS_ENDPOINT } from "@/lib/forms-endpoint";
+import { FORMS_ENDPOINT } from "../lib/forms-endpoint";
 
 const keyPlayers = [
   {
