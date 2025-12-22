@@ -105,7 +105,7 @@ function CoFounderVideoCard() {
 
       {/* Name */}
       <p className="mt-4 text-[13px] font-semibold text-slate-900">
-        Peter Lucious
+        Kanye West
       </p>
     </article>
   );
