@@ -141,3 +141,17 @@ canvas {
     transform: rotateY(-360deg);
   }
 }
+
+/* Beneficiary image zoom animation */
+@keyframes beneficiary-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.beneficiary-image-zoom {
+  animation: beneficiary-zoom 3s ease-in-out forwards;
+}

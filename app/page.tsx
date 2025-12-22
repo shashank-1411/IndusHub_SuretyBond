@@ -410,6 +410,83 @@ export default function Home() {
   const [activeBeneficiary, setActiveBeneficiary] = useState(
     beneficiaryCategories[0].title
   );
+  const [isAutoSwitching, setIsAutoSwitching] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [imageZoomKey, setImageZoomKey] = useState(0);
+  const autoSwitchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const zoomTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Handle manual card click
+  const handleBeneficiaryClick = (title: string) => {
+    if (title === activeBeneficiary) return;
+    
+    // Pause auto-switching
+    setIsAutoSwitching(false);
+    
+    // Clear any existing timeouts
+    if (autoSwitchTimeoutRef.current) {
+      clearTimeout(autoSwitchTimeoutRef.current);
+      autoSwitchTimeoutRef.current = null;
+    }
+    if (zoomTimeoutRef.current) {
+      clearTimeout(zoomTimeoutRef.current);
+      zoomTimeoutRef.current = null;
+    }
+    
+    // Switch to clicked card with fade transition
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveBeneficiary(title);
+      setImageZoomKey((prev) => prev + 1); // Trigger zoom animation
+      setIsTransitioning(false);
+      
+      // Resume auto-switching after 3 seconds (zoom duration)
+      zoomTimeoutRef.current = setTimeout(() => {
+        setIsAutoSwitching(true);
+      }, 3000);
+    }, 300);
+  };
+
+  // Auto-switch logic
+  useEffect(() => {
+    if (!isAutoSwitching) {
+      // Clear timeout if auto-switching is paused
+      if (autoSwitchTimeoutRef.current) {
+        clearTimeout(autoSwitchTimeoutRef.current);
+        autoSwitchTimeoutRef.current = null;
+      }
+      return;
+    }
+
+    // Start zoom animation when card becomes active
+    setImageZoomKey((prev) => prev + 1);
+    
+    // Switch to next card after 3 seconds (zoom duration)
+    autoSwitchTimeoutRef.current = setTimeout(() => {
+      const currentIndex = beneficiaryCategories.findIndex(
+        (cat) => cat.title === activeBeneficiary
+      );
+      const nextIndex = (currentIndex + 1) % beneficiaryCategories.length;
+      const nextBeneficiary = beneficiaryCategories[nextIndex].title;
+      
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setActiveBeneficiary(nextBeneficiary);
+        setIsTransitioning(false);
+      }, 300);
+    }, 3000);
+
+    return () => {
+      if (autoSwitchTimeoutRef.current) {
+        clearTimeout(autoSwitchTimeoutRef.current);
+        autoSwitchTimeoutRef.current = null;
+      }
+      if (zoomTimeoutRef.current) {
+        clearTimeout(zoomTimeoutRef.current);
+        zoomTimeoutRef.current = null;
+      }
+    };
+  }, [activeBeneficiary, isAutoSwitching]);
 
   return (
     <div className="page-offset min-h-screen bg-white text-slate-900">
@@ -493,7 +570,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:px-7 sm:py-6">
                     <div className="flex-shrink-0">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-xs font-semibold text-slate-500 shadow-sm ring-1 ring-slate-200">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-xs font-semibold text-slate-500 shadow-sm ring-1 ring-slate-200 transition-all duration-300 group-hover:scale-125 group-hover:bg-[#cf6734] group-hover:text-white group-hover:ring-[#cf6734]">
                         {item.step}
                       </div>
                     </div>
@@ -733,7 +810,7 @@ export default function Home() {
                   <button
                     key={item.title}
                     type="button"
-                    onClick={() => setActiveBeneficiary(item.title)}
+                    onClick={() => handleBeneficiaryClick(item.title)}
                     className={`relative flex min-w-[160px] items-end justify-start overflow-hidden rounded-xl border px-4 py-3 text-left text-sm font-semibold transition ${
                       activeBeneficiary === item.title
                         ? "border-[#cf6734] shadow-md"
@@ -766,34 +843,45 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="mt-2 flex-1 overflow-hidden rounded-2xl border border-slate-200 shadow-sm md:mt-0 md:flex">
-                {beneficiaryCategories.map((item) =>
-                  item.title === activeBeneficiary ? (
-                    <div
-                      key={item.title}
-                      className="relative h-full min-h-[18rem] w-full md:min-h-[20rem] lg:min-h-[22rem]"
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                      <div className="absolute inset-x-5 bottom-5 space-y-2 text-white md:inset-x-7">
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f6c19a]">
-                          Beneficiary Category
-                        </p>
-                        <h3 className="text-lg font-semibold md:text-xl">
-                          {item.title}
-                        </h3>
-                        <p className="text-xs leading-relaxed text-slate-100 md:text-sm">
-                          {item.description}
-                        </p>
+              <div className="relative mt-2 flex-1 overflow-hidden rounded-2xl border border-slate-200 shadow-sm md:mt-0 md:flex">
+                <div className="relative h-full w-full min-h-[18rem] md:min-h-[20rem] lg:min-h-[22rem]">
+                  {beneficiaryCategories.map((item) => {
+                    const isActive = item.title === activeBeneficiary;
+                    return (
+                      <div
+                        key={item.title}
+                        className={`absolute inset-0 transition-opacity duration-300 ${
+                          isActive && !isTransitioning
+                            ? "opacity-100 z-10"
+                            : "opacity-0 z-0 pointer-events-none"
+                        }`}
+                      >
+                        <div className="relative h-full w-full overflow-hidden">
+                          <Image
+                            key={`${item.title}-${imageZoomKey}`}
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            className="beneficiary-image-zoom object-cover"
+                            priority={isActive}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                          <div className="absolute inset-x-5 bottom-5 space-y-2 text-white md:inset-x-7">
+                            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f6c19a]">
+                              Beneficiary Category
+                            </p>
+                            <h3 className="text-lg font-semibold md:text-xl">
+                              {item.title}
+                            </h3>
+                            <p className="text-xs leading-relaxed text-slate-100 md:text-sm">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  ) : null
-                )}
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -1001,7 +1089,7 @@ export default function Home() {
               Why Clients Rely On Us
             </h2>
           </div>
-          <div className="mt-10 mr-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mt-10 mr-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-[1fr_1fr_1fr] md:justify-items-start">
             {/* Left moving column */}
             <TestimonialsColumn
               testimonials={scrollingTestimonials}
@@ -1020,7 +1108,7 @@ export default function Home() {
               duration={20}
               direction="down"
               hoverSlowdown={1.8}
-              className="h-[420px]"
+              className="h-[420px] md:ml-auto md:mr-0"
             />
           </div>
         </section>
