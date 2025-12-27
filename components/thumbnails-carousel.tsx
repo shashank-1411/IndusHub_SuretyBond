@@ -3,11 +3,12 @@
 import { useState } from "react";
 
 const localImages = [
-  "/pexels-ashokjkshetri-12964295.jpg",
-  "/pexels-ashokjkshetri-14416888.jpg",
-  "/pexels-haberdoedas-33287267.jpg",
-  "/pexels-josh-hild-1270765-2422255.jpg",
-  "/pexels-rakin-raihan-480830755-15861341.jpg",
+  "/WhatsApp Image 2025-12-27 at 1.41.44 PM (1).jpeg",
+  "/WhatsApp Image 2025-12-27 at 1.41.44 PM.jpeg",
+  "/WhatsApp Image 2025-12-27 at 1.41.45 PM (1).jpeg",
+  "/WhatsApp Image 2025-12-27 at 1.41.45 PM (2).jpeg",
+  "/WhatsApp Image 2025-12-27 at 1.41.45 PM.jpeg",
+  "/8140d9ae-0fe7-4ed4-b0b6-d16c14747555 1.png",
 ];
 
 export function ThumbnailsCarousel() {
@@ -28,19 +29,21 @@ export function ThumbnailsCarousel() {
   return (
     <div className="mx-auto max-w-4xl">
       {/* Main Image */}
-      <div className="mb-4 overflow-hidden rounded-lg shadow-lg">
-        <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+      <div className="mb-4 overflow-hidden rounded-lg shadow-lg bg-slate-100">
+        <div className="relative w-full">
           {localImages.map((image, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-300 ${
-                index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              className={`transition-opacity duration-300 ${
+                index === currentIndex 
+                  ? 'opacity-100 z-10 relative block' 
+                  : 'opacity-0 z-0 absolute inset-0 pointer-events-none'
               }`}
             >
               <img
                 src={image}
                 alt={`Slide ${index + 1}`}
-                className="h-full w-full object-cover"
+                className="h-auto w-full object-contain"
                 loading={index === 0 ? "eager" : "lazy"}
               />
             </div>
