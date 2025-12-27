@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ConfettiTrigger } from "@/components/confetti-trigger";
 import { FormFeedback } from "@/components/form-feedback";
+import { IndushubBanner } from "@/components/indushub-banner";
 
 interface FooterSectionProps {
   newsletterFormId?: string;
@@ -18,6 +19,7 @@ export function FooterSection({
 }: FooterSectionProps = {}) {
   return (
     <>
+      <IndushubBanner />
       <footer className="bg-white px-6 py-12 text-slate-800 md:px-20">
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start">
           {/* Left */}
@@ -36,6 +38,14 @@ export function FooterSection({
               <Link href="/indushub-services" className="font-semibold hover:text-[#cf6734]">Services</Link>
               <Link href="/privacy" className="font-semibold hover:text-[#cf6734]">Privacy Policy</Link>
               <Link href="/terms" className="font-semibold hover:text-[#cf6734]">Terms and Conditions</Link>
+            </div>
+            <div className="mt-4">
+              <Link 
+                href="/indushub" 
+                className="text-xs font-semibold text-slate-700 hover:text-[#cf6734]"
+              >
+                www.indushub.com
+              </Link>
             </div>
           </div>
 

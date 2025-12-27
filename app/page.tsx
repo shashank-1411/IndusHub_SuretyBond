@@ -12,6 +12,7 @@ import { ParallaxTiltCard } from "@/components/ui/parallax-tilt-card";
 import { StickyCtaBar } from "@/components/sticky-cta-bar";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { FooterSection } from "@/components/footer-section";
+import { WhatsAppQuotation } from "@/components/whatsapp-quotation";
 
 const keyPlayers = [
   {
@@ -517,49 +518,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Mission / Vision */}
-        <section className="border-b border-[#e5edf3] bg-white px-6 py-16 md:px-20">
-          <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
-            {/* Mission */}
-            <div className="group">
-              <div className="mb-6 flex h-8 w-8 items-center justify-center">
-                <Image
-                  src="/flag_2.png"
-                  alt="Mission icon"
-                  width={32}
-                  height={32}
-                  className="hover-spin-scale h-8 w-8 object-contain"
-                />
-              </div>
-              <h2 className="text-2xl font-semibold text-slate-900">Our Mission</h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-700">
-                To provide comprehensive, expert-driven business support
-                services—starting with surety bonds—that streamline operations
-                and build trust for our clients.
-              </p>
-            </div>
-
-            {/* Vision */}
-            <div className="group">
-              <div className="mb-6 flex h-8 w-8 items-center justify-center">
-                <Image
-                  src="/visibility.png"
-                  alt="Vision icon"
-                  width={32}
-                  height={32}
-                  className="hover-spin-scale h-8 w-8 object-contain"
-                />
-              </div>
-              <h2 className="text-2xl font-semibold text-slate-900">Our Vision</h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-700">
-                Empowering businesses across India to thrive through innovative,
-                reliable, and tailored solutions that drive sustainable growth
-                and economic progress.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Image Break */}
         <section className="relative h-64 w-full border-b border-slate-100 md:h-80">
         <Image
@@ -782,150 +740,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Quotation Form (front-end only) */}
-        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
-          <div className="rounded-sm border border-slate-200 bg-white px-5 pb-10 pt-7 shadow-sm md:px-10">
-            <div className="md:flex md:items-end md:justify-between">
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#cf6734]">
-                  Quotation For Surety Bond
-                </p>
-              </div>
-            </div>
-
-            <form
-              id="quotation-form"
-              className="mt-8 grid gap-x-8 gap-y-5 text-[11px] md:grid-cols-2"
-            >
-              <input type="hidden" name="formType" value="quotation" />
-              <div className="flex flex-col gap-1">
-                <label className="font-medium text-slate-700">
-                  Company Profile<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="companyProfile"
-                  placeholder="Sonai Infra"
-                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <label className="font-medium text-slate-700">
-                  GST Certificate<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="gstCertificate"
-                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium text-slate-700">
-                  Surety Bond Proposal Form<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="suretyBondProposalForm"
-                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <div className="flex items-center justify-between gap-2">
-                  <label className="font-medium text-slate-700">
-                    Tender Document<span className="text-red-500">*</span>
-                  </label>
-                  <span className="text-[10px] text-red-500">
-                    Please upload document in valid format (.pdf).
-                  </span>
-                </div>
-                <input
-                  type="text"
-                  name="tenderDocument"
-                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium text-slate-700">
-                  Request For Proposal (RFP)<span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="rfp"
-                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <label className="font-medium text-slate-700">
-                  Credit Rating Certificate (if available)
-                </label>
-                <select
-                  name="creditRatingCertificate"
-                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                >
-                  <option value="">Select your city</option>
-                  <option value="mumbai">Mumbai</option>
-                  <option value="delhi">Delhi</option>
-                  <option value="bangalore">Bangalore</option>
-                  <option value="pune">Pune</option>
-                  <option value="hyderabad">Hyderabad</option>
-                  <option value="chennai">Chennai</option>
-                  <option value="kolkata">Kolkata</option>
-                </select>
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-medium text-slate-700">
-                  Last 2 Year Audited Financial &amp; Provisional Balance Sheet
-                  <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="auditFinancials"
-                  placeholder="Upload Year 1"
-                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                />
-              </div>
-              <div className="flex flex-col gap-1 md:pt-5">
-                <input
-                  type="text"
-                  name="auditFinancials2"
-                  placeholder="Upload Year 2"
-                  className="h-11 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
-                />
-              </div>
-
-              <p className="mt-1 max-w-3xl text-[10px] leading-relaxed text-slate-600 md:col-span-2">
-                *Mandatory
-              </p>
-
-              <p className="max-w-3xl text-[11px] leading-relaxed text-slate-700 md:col-span-2">
-                We would like to keep in touch with you. We may send you news,
-                reports, marketing updates, sales communications and invitations
-                to exclusive events. You can always change your preferences or
-                stop at any time.
-              </p>
-
-              <label className="mt-2 flex items-start gap-2 text-[11px] text-slate-700 md:col-span-2">
-                <input
-                  type="checkbox"
-                  defaultChecked
-                  className="mt-0.5 h-4 w-4 rounded-sm border-slate-300 text-[#cf6734] focus:ring-[#cf6734]"
-                />
-                <span>
-                  I agree with this website&apos;s{" "}
-                  <span className="underline">Terms &amp; Conditions</span> and{" "}
-                  <span className="underline">Privacy Policy</span>
-                </span>
-              </label>
-
-              <div className="mt-4 flex justify-end md:col-span-2">
-                <CtaButton label="Submit" type="submit" />
-              </div>
-            </form>
-          </div>
-        </section>
+        {/* Quotation via WhatsApp */}
+        <WhatsAppQuotation />
 
         {/* Process */}
         <section id="process" className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
@@ -991,7 +807,6 @@ export default function Home() {
         <FooterSection 
           newsletterFormId="newsletter-home"
           newsletterStatusId="newsletter-home-status"
-          confettiFormIds={["quotation-form"]}
         />
       </main>
       <StickyCtaBar />

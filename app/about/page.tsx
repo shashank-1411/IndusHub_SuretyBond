@@ -111,6 +111,49 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Mission / Vision */}
+        <section className="border-b border-[#e5edf3] bg-white px-6 py-16 md:px-20">
+          <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+            {/* Mission */}
+            <div className="group">
+              <div className="mb-6 flex h-8 w-8 items-center justify-center">
+                <Image
+                  src="/flag_2.png"
+                  alt="Mission icon"
+                  width={32}
+                  height={32}
+                  className="hover-spin-scale h-8 w-8 object-contain"
+                />
+              </div>
+              <h2 className="text-2xl font-semibold text-slate-900">Our Mission</h2>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-700">
+                To provide comprehensive, expert-driven business support
+                services—starting with surety bonds—that streamline operations
+                and build trust for our clients.
+              </p>
+            </div>
+
+            {/* Vision */}
+            <div className="group">
+              <div className="mb-6 flex h-8 w-8 items-center justify-center">
+                <Image
+                  src="/visibility.png"
+                  alt="Vision icon"
+                  width={32}
+                  height={32}
+                  className="hover-spin-scale h-8 w-8 object-contain"
+                />
+              </div>
+              <h2 className="text-2xl font-semibold text-slate-900">Our Vision</h2>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-700">
+                Empowering businesses across India to thrive through innovative,
+                reliable, and tailored solutions that drive sustainable growth
+                and economic progress.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Our Stories - Thumbnails Carousel */}
         <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#cf6734]">

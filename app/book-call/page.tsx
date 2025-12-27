@@ -3,7 +3,7 @@
 import Script from "next/script";
 import { SiteHeader } from "@/components/site-header";
 
-const CALENDLY_URL = "https://calendly.com/indushub/30min";
+const CALENDLY_URL = "https://calendly.com/shashankkharode/30min";
 
 export default function BookCallPage() {
   return (

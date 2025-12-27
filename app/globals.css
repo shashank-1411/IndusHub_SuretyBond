@@ -17,6 +17,10 @@ h6 {
 }
 
 /* Prevent horizontal overflow */
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   max-width: 100%;
