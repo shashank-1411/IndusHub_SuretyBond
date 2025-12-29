@@ -14,35 +14,35 @@ const services = [
     title: "Procurement Services",
     description:
       "Comprehensive procurement solutions focused on cost efficiency, quality assurance, and supply chain optimization for on-time delivery.",
-    image: "/constantinos-kollias-yqBvJJ8jGBQ-unsplash 1.png",
+    image: "/service1.png",
   },
   {
     number: "2",
     title: "Advisory & Structuring",
     description:
       "We evaluate your working capital mix, understand contractual obligations, and craft the optimal surety solution for each project.",
-    image: "/bridge.PNG",
+    image: "/service2.png",
   },
   {
     number: "3",
     title: "Insurer Partnerships",
     description:
       "Indushub works with top-rated insurance carriers to negotiate competitive terms, limits, and collateral requirements on your behalf.",
-    image: "/8140d9ae-0fe7-4ed4-b0b6-d16c14747555 1.png",
+    image: "/service3.png",
   },
   {
     number: "4",
     title: "Program Management",
     description:
       "From documentation to issuance, renewals, and claims assistance, our specialists manage the end-to-end lifecycle of your bonds.",
-    image: "/Mask group.png",
+    image: "/service4.png",
   },
   {
     number: "5",
     title: "Risk Analytics",
     description:
       "We provide dashboards and analytics so CXOs can track exposure, expiries, and project-level performance in real time.",
-    image: "/constantinos-kollias-yqBvJJ8jGBQ-unsplash 1.png",
+    image: "/service5.png",
   },
 ];
 
