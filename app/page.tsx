@@ -566,7 +566,7 @@ export default function Home() {
             </p>
             <div className="mt-6 overflow-hidden">
               <div className="logos-marquee flex items-center gap-16">
-                {[...clientLogos, ...clientLogos].map((logo, index) => (
+                {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((logo, index) => (
                   <Image
                     key={`${logo}-${index}`}
                     src={logo}
