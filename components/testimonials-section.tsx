@@ -5,28 +5,36 @@ import { TestimonialsColumn } from "@/components/testimonials-column";
 
 const testimonials = [
   {
-    initials: "SJ",
+    initials: "SI",
     badgeClass: "bg-[#e5f1ff] text-slate-700",
-    name: "Shri S. M. Autade Pvt Ltd",
+    name: "Sonai Infra",
     sector: "Infrastructure",
     quote:
-      "Indushub is the clear choice for surety bonds. For our infrastructure projects, speed is paramount, and Indushub has delivered to meet our expectations. They make a complex process smooth, incredibly fast, and result-oriented. Highly recommend Indushub.",
+      "Indushub is a professional organisation who delivers results with complete ownership. They are definitely best in the business where Surety Bonds are concerned. They have delivered surety bonds in a smooth and fast way. They are our go to person where Surety Bonds are concerned. We are happy with their services and highly recommend them",
   },
   {
-    initials: "SP",
+    initials: "SMA",
     badgeClass: "bg-[#ffe9d6] text-slate-700",
-    name: "Sopan D & M Pvt Limited",
-    sector: "Oil and Gas",
+    name: "S. M. Autade",
+    sector: "Infrastructure",
     quote:
-      "Indushub is a game-changer for surety bonds. Their smooth, fast, and result-oriented approach consistently delivers the fastest possible time. They truly understand the underwriting and product surety bond to the core.",
+      "Indushub is the clear choice for surety bonds. For our infrastructure projects, speed is paramount, and Indushub has delievered to meet our expectations. They make a complex process smooth, incredibly fast, and result-oriented. Highly recommend Indushub",
   },
   {
-    initials: "AC",
+    initials: "SO",
     badgeClass: "bg-[#f0f4ff] text-slate-700",
-    name: "Arvind Constructions",
-    sector: "EPC",
+    name: "Sopan",
+    sector: "Infrastructure",
     quote:
-      "They handled documentation and insurer coordination end-to-end, freeing our team to focus on execution. The responsiveness and clarity from Indushub saved us critical time on bids.",
+      "Indushub is the game-changer for infrastructure company surety bonds. Their process is incredibly smooth, fast, and results-oriented, consistently delivering bonds in the fastest possible time. They truly understand the urgency of the sector and the product Surety Bond to the core.",
+  },
+  {
+    initials: "GNI",
+    badgeClass: "bg-[#e6f7ec] text-slate-700",
+    name: "GNI Infrastructure",
+    sector: "Infrastructure",
+    quote:
+      "Indushub is the clear choice for surety bonds. Their focus on speed and results, especially for infrastructure companies, is unmatched. The entire process was smooth, fast, and we got our bond issued in record time. They truly deliver on their promise of being the fastest in the business.",
   },
 ];
 
@@ -66,7 +74,7 @@ function CoFounderVideoCard() {
       {/* Status pill */}
       <div className="flex items-center justify-center gap-2 rounded-full bg-slate-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-700">
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-        <span>Co-founder</span>
+        <span>Principal Growth Partner</span>
       </div>
 
       {/* Square video */}
@@ -105,7 +113,7 @@ function CoFounderVideoCard() {
 
       {/* Name */}
       <p className="mt-4 text-[13px] font-semibold text-slate-900">
-        Kanye West
+        Vaishali Jog
       </p>
     </article>
   );

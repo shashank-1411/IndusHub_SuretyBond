@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import confetti from "canvas-confetti";
 import { SiteHeader } from "@/components/site-header";
 import { CtaButton } from "@/components/cta-button";
 import { FooterSection } from "@/components/footer-section";
@@ -9,6 +10,142 @@ import { FooterSection } from "@/components/footer-section";
 export default function ContactPage() {
   const [messageLength, setMessageLength] = useState(0);
   const [emailError, setEmailError] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    message: string;
+    type: 'success' | 'error' | null;
+  }>({ message: '', type: null });
+
+  // Google Apps Script WebApp URL for contact form
+  const CONTACT_FORM_URL = "https://script.google.com/macros/s/AKfycbwVgfEGeCPqSgBe-3zGtA7l532JyhgvW106zWoMUjiO5Fue4en20Y1h1-XRSHakNwz4pQ/exec";
+
+  useEffect(() => {
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    if (!form || !CONTACT_FORM_URL) return;
+
+    const handleSubmit = async (e: Event) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data: Record<string, string> = {};
+      
+      // Collect all form data, including checkbox
+      formData.forEach((value, key) => {
+        data[key] = value.toString();
+      });
+      
+      // Handle checkbox separately if not in FormData
+      const checkbox = form.querySelector('input[type="checkbox"]') as HTMLInputElement;
+      if (checkbox && checkbox.checked) {
+        data.agreedToTerms = "true";
+      }
+
+      // Add form type and timestamp
+      data.formType = "contact";
+      data.timestamp = new Date().toISOString();
+
+      // Log data being sent (for debugging)
+      console.log("Submitting form data:", data);
+
+      try {
+        // Submit to Google Apps Script WebApp
+        const response = await fetch(CONTACT_FORM_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(data).toString(),
+        });
+
+        // Note: With no-cors mode, we can't read the response
+        // But the data should still be submitted
+        
+        // Wait a bit to ensure submission completes
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        // Clear inputs
+        form.querySelectorAll("input").forEach((input) => {
+          if (input.type !== "checkbox") {
+            input.value = "";
+          } else {
+            (input as HTMLInputElement).checked = false;
+          }
+        });
+        form.querySelectorAll("textarea").forEach((ta) => (ta.value = ""));
+        form.querySelectorAll("select").forEach((select) => {
+          (select as HTMLSelectElement).selectedIndex = 0;
+        });
+
+        // Reset state
+        setMessageLength(0);
+        setAgreedToTerms(false);
+
+        // Show success
+        setSubmitStatus({
+          message: "Submitted. Thank you!!",
+          type: "success",
+        });
+
+        // Fire confetti with slower, more visible animation
+        confetti({
+          particleCount: 150,
+          spread: 80,
+          origin: { y: 0.6 },
+          colors: ["#cf6734", "#003749", "#ffffff"],
+          gravity: 0.8,
+          ticks: 200,
+          decay: 0.94,
+        });
+
+        // Fire additional confetti bursts for more effect
+        setTimeout(() => {
+          confetti({
+            particleCount: 50,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: ["#cf6734", "#003749", "#ffffff"],
+            gravity: 0.8,
+            ticks: 200,
+            decay: 0.94,
+          });
+        }, 250);
+        
+        setTimeout(() => {
+          confetti({
+            particleCount: 50,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: ["#cf6734", "#003749", "#ffffff"],
+            gravity: 0.8,
+            ticks: 200,
+            decay: 0.94,
+          });
+        }, 400);
+
+        // Hide message after 4 seconds
+        setTimeout(() => {
+          setSubmitStatus({ message: "", type: null });
+        }, 4000);
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        setSubmitStatus({
+          message: "Error submitting. Please try again.",
+          type: "error",
+        });
+        setTimeout(() => {
+          setSubmitStatus({ message: "", type: null });
+        }, 3000);
+      }
+    };
+
+    form.addEventListener("submit", handleSubmit);
+    return () => {
+      form.removeEventListener("submit", handleSubmit);
+    };
+  }, [CONTACT_FORM_URL]);
 
   return (
     <div className="page-offset min-h-screen bg-white text-slate-900">
@@ -34,11 +171,14 @@ export default function ContactPage() {
             {/* Contact Form - styled to match reference */}
             <div className="mt-10 w-full max-w-5xl">
               <form
+                id="contact-form"
                 className="grid gap-4 text-[11px] md:grid-cols-2"
               >
+                <input type="hidden" name="formType" value="contact" />
                 <div className="flex flex-col gap-1">
-                  <label className="font-medium text-slate-700">First Name*</label>
+                  <label htmlFor="firstName" className="font-medium text-slate-700">First Name*</label>
                   <input
+                    id="firstName"
                     type="text"
                     name="firstName"
                     required
@@ -46,8 +186,9 @@ export default function ContactPage() {
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="font-medium text-slate-700">Last Name*</label>
+                  <label htmlFor="lastName" className="font-medium text-slate-700">Last Name*</label>
                   <input
+                    id="lastName"
                     type="text"
                     name="lastName"
                     required
@@ -56,8 +197,9 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="font-medium text-slate-700">Company*</label>
+                  <label htmlFor="company" className="font-medium text-slate-700">Company*</label>
                   <input
+                    id="company"
                     type="text"
                     name="company"
                     required
@@ -65,8 +207,9 @@ export default function ContactPage() {
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="font-medium text-slate-700">Email*</label>
+                  <label htmlFor="email" className="font-medium text-slate-700">Email*</label>
                   <input
+                    id="email"
                     type="email"
                     name="email"
                     required
@@ -86,8 +229,9 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="font-medium text-slate-700">Phone Number*</label>
+                  <label htmlFor="phone" className="font-medium text-slate-700">Phone Number*</label>
                   <input
+                    id="phone"
                     type="tel"
                     defaultValue="+91"
                     name="phone"
@@ -97,8 +241,9 @@ export default function ContactPage() {
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="font-medium text-slate-700">City*</label>
+                  <label htmlFor="city" className="font-medium text-slate-700">City*</label>
                   <select
+                    id="city"
                     name="city"
                     required
                     className="h-8 w-full rounded-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
@@ -115,8 +260,9 @@ export default function ContactPage() {
                 </div>
 
                 <div className="md:col-span-2 flex flex-col gap-1">
-                  <label className="font-medium text-slate-700">Write a message</label>
+                  <label htmlFor="message" className="font-medium text-slate-700">Write a message</label>
                   <textarea
+                    id="message"
                     className="h-24 w-full rounded-sm border border-slate-300 bg-white px-3 py-2 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                     maxLength={150}
                     name="message"
@@ -141,7 +287,9 @@ export default function ContactPage() {
                 <label className="flex items-start gap-2 text-[10px] text-slate-700 md:col-span-2">
                   <input
                     type="checkbox"
-                    defaultChecked
+                    checked={agreedToTerms}
+                    onChange={(e) => setAgreedToTerms(e.target.checked)}
+                    required
                     className="mt-0.5 h-4 w-4 rounded-sm border-slate-300 text-[#cf6734] focus:ring-[#cf6734]"
                   />
                   <span>
@@ -151,8 +299,23 @@ export default function ContactPage() {
                   </span>
                 </label>
 
-                <div className="mt-2 flex justify-end md:col-span-2">
-                  <CtaButton label="Submit" type="submit" />
+                <div className="mt-2 flex flex-col items-end gap-2 md:col-span-2">
+                  {submitStatus.type && (
+                    <p
+                      className={`text-xs font-semibold ${
+                        submitStatus.type === "success"
+                          ? "text-green-600"
+                          : "text-red-600"
+                      }`}
+                    >
+                      {submitStatus.message}
+                    </p>
+                  )}
+                  <CtaButton 
+                    label="Submit" 
+                    type="submit" 
+                    disabled={!agreedToTerms}
+                  />
                 </div>
               </form>
             </div>
@@ -162,7 +325,7 @@ export default function ContactPage() {
         {/* Final Image Strip */}
         <section className="relative h-64 w-full border-b border-slate-100 md:h-80">
           <Image
-            src="/Mask group.png"
+            src="/jose-noguera-AnA3uH_6zLk-unsplash.jpg"
             alt="Team meeting"
             fill
             className="object-cover"

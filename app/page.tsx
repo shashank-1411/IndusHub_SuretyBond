@@ -19,7 +19,7 @@ const keyPlayers = [
     title: "Principal",
     description:
       "The party who requests the bond and undertakes the primary obligation.",
-    image: "/p-removebg-preview.svg",
+    image: "/icons8-reading-book-100.png",
   },
   {
     title: "Surety Company",
@@ -301,11 +301,26 @@ const beneficiaryCategories = [
   },
 ];
 
+const heroHeadings: string[][] = [
+  [
+    "Issued India's first Defense bond",
+  ],
+  [
+    "Issued India’s First",
+    "PSU Bond",
+  ],
+  [
+    "Issued India’s First",
+    "Municipal Corporation Bond",
+  ],
+];
+
 
 export default function Home() {
   const [activeBeneficiary, setActiveBeneficiary] = useState(
     beneficiaryCategories[0].title
   );
+  const [heroIndex, setHeroIndex] = useState(0);
   const [isAutoSwitching, setIsAutoSwitching] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [imageZoomKey, setImageZoomKey] = useState(0);
@@ -384,6 +399,14 @@ export default function Home() {
     };
   }, [activeBeneficiary, isAutoSwitching]);
 
+  // Rotate hero heading every 2 seconds
+  useEffect(() => {
+    const id = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroHeadings.length);
+    }, 2000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div className="page-offset min-h-screen bg-white text-slate-900">
       <SiteHeader />
@@ -393,8 +416,13 @@ export default function Home() {
         <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
           <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)]">
             <div>
-              <h1 className="text-3xl font-semibold leading-tight text-slate-900 sm:text-[32px] md:text-[36px]">
-                Trusted Surety Bonds for Secure Project Execution
+              <h1 className="text-[32px] font-semibold leading-snug text-slate-900 md:text-[36px]">
+                {heroHeadings[heroIndex].map((line, index) => (
+                  <span key={index}>
+                    {line}
+                    {index < heroHeadings[heroIndex].length - 1 && <br />}
+                  </span>
+                ))}
               </h1>
             </div>
             <div className="max-w-md text-sm leading-relaxed text-slate-700 md:ml-auto">
@@ -781,7 +809,7 @@ export default function Home() {
             {/* Right image column */}
             <div className="relative h-60 w-full bg-slate-900 md:h-full">
             <Image
-                src="/8140d9ae-0fe7-4ed4-b0b6-d16c14747555 1.png"
+                src="/Frame 142.png"
                 alt="Indushub team"
                 fill
                 className="object-cover"
@@ -796,7 +824,7 @@ export default function Home() {
         {/* Final Image Strip */}
         <section className="relative h-64 w-full border-b border-slate-100 md:h-80">
           <Image
-            src="/Mask group.png"
+            src="/jose-noguera-AnA3uH_6zLk-unsplash.jpg"
             alt="Team meeting"
             fill
             className="object-cover"

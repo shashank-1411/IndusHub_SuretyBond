@@ -8,6 +8,7 @@ type CtaButtonProps = {
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
 };
 
 export function CtaButton({
@@ -16,12 +17,15 @@ export function CtaButton({
   type = "button",
   onClick,
   className,
+  disabled = false,
 }: CtaButtonProps) {
   const content = (
     <Button
       size="lg"
+      disabled={disabled}
       className={cn(
         "group relative inline-flex overflow-hidden rounded-sm bg-[#cf6734] px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.26em] text-white hover:bg-[#b45828]",
+        disabled && "cursor-not-allowed opacity-50 hover:bg-[#cf6734]",
         className
       )}
       type={href ? "button" : type}

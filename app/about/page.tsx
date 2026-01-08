@@ -6,7 +6,6 @@ import { SiteHeader } from "@/components/site-header";
 import { CtaButton } from "@/components/cta-button";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { FooterSection } from "@/components/footer-section";
-import { ThumbnailsCarousel } from "@/components/thumbnails-carousel";
 
 const services = [
   {
@@ -44,15 +43,6 @@ const services = [
       "We provide dashboards and analytics so CXOs can track exposure, expiries, and project-level performance in real time.",
     image: "/service5.png",
   },
-];
-
-
-const storiesImages = [
-  "/constantinos-kollias-yqBvJJ8jGBQ-unsplash 1.png",
-  "/bridge.PNG",
-  "/8140d9ae-0fe7-4ed4-b0b6-d16c14747555 1.png",
-  "/Mask group.png",
-  "/Rectangle 23088.png",
 ];
 
 export default function AboutPage() {
@@ -154,22 +144,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Our Stories - Thumbnails Carousel */}
-        <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#cf6734]">
-            Our Stories
-          </p>
-          <h2 className="mt-2 text-[32px] font-semibold text-slate-900 md:text-[36px]">
-            Moments from the field
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-700">
-            A quick look at highlights and on-ground moments that shape our work.
-          </p>
-          <div className="mt-8">
-            <ThumbnailsCarousel />
-          </div>
-        </section>
-
         {/* Services Offered By Indushub Section */}
         <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
           <h2 className="text-[32px] font-semibold text-slate-900 md:text-[36px]">
@@ -252,7 +226,7 @@ export default function AboutPage() {
         {/* Image Banner */}
         <section className="relative h-64 w-full border-b border-slate-100 md:h-80">
           <Image
-            src="/Mask group.png"
+            src="/jose-noguera-AnA3uH_6zLk-unsplash.jpg"
             alt="Team meeting"
             fill
             className="object-cover"

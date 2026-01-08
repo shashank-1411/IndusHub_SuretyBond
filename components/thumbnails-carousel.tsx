@@ -8,7 +8,7 @@ const localImages = [
   "/WhatsApp Image 2025-12-27 at 1.41.45 PM (1).jpeg",
   "/WhatsApp Image 2025-12-27 at 1.41.45 PM (2).jpeg",
   "/WhatsApp Image 2025-12-27 at 1.41.45 PM.jpeg",
-  "/8140d9ae-0fe7-4ed4-b0b6-d16c14747555 1.png",
+  "/Frame 142.png",
 ];
 
 export function ThumbnailsCarousel() {

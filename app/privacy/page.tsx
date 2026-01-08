@@ -387,10 +387,12 @@ export default function PrivacyPage() {
                 id="newsletter-privacy"
                 className="mt-4 flex max-w-xs items-stretch gap-0"
               >
+                <input type="hidden" name="formType" value="newsletter" />
                 <input
                   type="email"
                   placeholder="Write Email"
                   name="email"
+                  required
                   className="h-9 w-full flex-1 rounded-l-sm border border-slate-300 bg-white px-3 text-[11px] text-slate-800 outline-none focus:border-[#cf6734]"
                 />
                 <button
