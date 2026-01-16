@@ -71,7 +71,7 @@ export default function AboutPage() {
         <section className="relative h-64 w-full border-b border-slate-100 md:h-80 lg:h-[420px]">
           <Image
             src="/saara-sanamo-SgQJoLH1PU8-unsplash 1.png"
-            alt="Ancient ruins landscape"
+            alt="Infrastructure and construction projects supported by Indus Hub surety bonds"
             fill
             className="object-cover"
           />
@@ -227,7 +227,7 @@ export default function AboutPage() {
         <section className="relative h-64 w-full border-b border-slate-100 md:h-80">
           <Image
             src="/jose-noguera-AnA3uH_6zLk-unsplash.jpg"
-            alt="Team meeting"
+            alt="Indus Hub team of surety bond experts and financial advisors"
             fill
             className="object-cover"
           />

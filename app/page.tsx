@@ -441,7 +441,7 @@ export default function Home() {
         <section id="hero-image" className="relative h-64 w-full border-b border-slate-100 bg-[#f4f4f4] md:h-[360px] lg:h-[420px]">
           <Image
             src="/constantinos-kollias-yqBvJJ8jGBQ-unsplash 1.png"
-            alt="Ancient city landscape"
+            alt="Construction and infrastructure projects supported by Indus Hub surety bonds"
             fill
             priority
             sizes="100vw"
@@ -825,7 +825,7 @@ export default function Home() {
         <section className="relative h-64 w-full border-b border-slate-100 md:h-80">
           <Image
             src="/jose-noguera-AnA3uH_6zLk-unsplash.jpg"
-            alt="Team meeting"
+            alt="Indus Hub team collaborating on surety bond solutions for clients"
             fill
             className="object-cover"
           />

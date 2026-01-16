@@ -389,7 +389,7 @@ export default function SuretyBondsPage() {
         <section className="relative h-64 w-full border-b border-slate-100 md:h-80">
           <Image
             src="/jose-noguera-AnA3uH_6zLk-unsplash.jpg"
-            alt="Team meeting"
+            alt="Indus Hub surety bond specialists providing expert guidance"
             fill
             className="object-cover"
           />
