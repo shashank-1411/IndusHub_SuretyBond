@@ -84,7 +84,7 @@ function CoFounderVideoCard() {
       >
         <video
           ref={videoRef}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain bg-slate-100"
           src="https://www.pexels.com/download/video/8814086/"
           poster="/vaishali%20ma%27am.jpeg"
           loop

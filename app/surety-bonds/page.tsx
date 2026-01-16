@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { CtaButton } from "@/components/cta-button";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { FooterSection } from "@/components/footer-section";
+import { WordFadeIn } from "@/components/ui/word-fade-in";
 
 const steps = [
   {
@@ -181,13 +182,11 @@ export default function SuretyBondsPage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#cf6734]">
                 OUR JOURNEY
               </p>
-              <h1 className="mt-4 text-[32px] font-semibold leading-snug text-slate-900 md:text-[36px]">
-                Issued India&apos;s First
-                <br />
-                Defence Performance
-                <br />
-                Surety Bond
-              </h1>
+              <WordFadeIn
+                words="Issued India's First Defence Performance Surety Bond"
+                className="mt-4 text-[32px] font-semibold leading-snug text-slate-900 md:text-[36px]"
+                delay={0.12}
+              />
             </div>
           </section>
 

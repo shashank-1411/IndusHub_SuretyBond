@@ -6,6 +6,7 @@ import confetti from "canvas-confetti";
 import { SiteHeader } from "@/components/site-header";
 import { CtaButton } from "@/components/cta-button";
 import { FooterSection } from "@/components/footer-section";
+import { WordFadeIn } from "@/components/ui/word-fade-in";
 
 export default function ContactPage() {
   const [messageLength, setMessageLength] = useState(0);
@@ -158,9 +159,11 @@ export default function ContactPage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#cf6734]">
                 GET IN TOUCH
               </p>
-              <h1 className="mt-4 text-[32px] font-semibold leading-[1.25] text-slate-900 md:text-[36px]">
-                Reach Out To Us
-              </h1>
+              <WordFadeIn
+                words="Reach Out To Us"
+                className="mt-4 text-[32px] font-semibold leading-[1.25] text-slate-900 md:text-[36px]"
+                delay={0.1}
+              />
               <p className="mt-4 text-sm leading-relaxed text-slate-700">
                 We welcome all types of inquiries, whether you&apos;re looking
                 to collaborate, discuss a specific project, or explore

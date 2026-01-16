@@ -13,6 +13,7 @@ import { StickyCtaBar } from "@/components/sticky-cta-bar";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { FooterSection } from "@/components/footer-section";
 import { WhatsAppQuotation } from "@/components/whatsapp-quotation";
+import { WordFadeIn } from "@/components/ui/word-fade-in";
 
 const keyPlayers = [
   {
@@ -416,14 +417,12 @@ export default function Home() {
         <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
           <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)]">
             <div>
-              <h1 className="text-[32px] font-semibold leading-snug text-slate-900 md:text-[36px]">
-                {heroHeadings[heroIndex].map((line, index) => (
-                  <span key={index}>
-                    {line}
-                    {index < heroHeadings[heroIndex].length - 1 && <br />}
-                  </span>
-                ))}
-              </h1>
+              <WordFadeIn
+                key={heroIndex}
+                words={heroHeadings[heroIndex].join(" ")}
+                className="text-[32px] font-semibold leading-snug text-slate-900 md:text-[36px]"
+                delay={0.1}
+              />
             </div>
             <div className="max-w-md text-sm leading-relaxed text-slate-700 md:ml-auto">
               <p>

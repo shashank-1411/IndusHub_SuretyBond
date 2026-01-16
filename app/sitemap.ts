@@ -44,7 +44,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/book-call`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/indushub`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/privacy`,
