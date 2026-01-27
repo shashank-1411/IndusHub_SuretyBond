@@ -15,8 +15,8 @@ const testimonials = [
   {
     initials: "SMA",
     badgeClass: "bg-[#ffe9d6] text-slate-700",
-    name: "S. M. Autade",
-    sector: "Infrastructure",
+    name: "Shri S. M. Autade",
+    sector: "Pvt. Ltd.",
     quote:
       "Indushub is the clear choice for surety bonds. For our infrastructure projects, speed is paramount, and Indushub has delievered to meet our expectations. They make a complex process smooth, incredibly fast, and result-oriented. Highly recommend Indushub",
   },
