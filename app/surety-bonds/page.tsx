@@ -7,6 +7,28 @@ import { CtaButton } from "@/components/cta-button";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { FooterSection } from "@/components/footer-section";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
+import { ParallaxTiltCard } from "@/components/ui/parallax-tilt-card";
+
+const keyPlayers = [
+  {
+    title: "Principal",
+    description:
+      "The party who requests the bond and undertakes the primary obligation.",
+    image: "/icons8-reading-book-100.png",
+  },
+  {
+    title: "Surety Company",
+    description:
+      "The insurance company that guarantees the principal’s obligation.",
+    image: "/s-removebg-preview.svg",
+  },
+  {
+    title: "Obligee",
+    description:
+      "The beneficiary that receives financial protection from the bond.",
+    image: "/o-removebg-preview.svg",
+  },
+];
 
 const steps = [
   {
@@ -212,6 +234,35 @@ export default function SuretyBondsPage() {
           <AutoScrollSteps />
         </section>
 
+        {/* Key Players */}
+        <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.5fr)] md:items-start">
+            {/* Left copy column */}
+            <div className="max-w-sm">
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#cf6734]">
+                Key Players
+              </p>
+              <p className="mt-5 text-base leading-relaxed text-slate-800 md:text-lg">
+                The transactions always involves three parties: The Principal,
+                The contractor, and the surety provider (Insurance Company).
+              </p>
+            </div>
+
+            {/* Cards row */}
+            <div className="grid place-items-center gap-6 md:grid-cols-3">
+              {keyPlayers.map((item) => (
+                <ParallaxTiltCard
+                  key={item.title}
+                  title={item.title}
+                  description={item.description}
+                  imageUrl={item.image}
+                  className="w-full max-w-[240px]"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Types of Surety Bonds */}
         <section className="border-b border-slate-100 bg-white px-6 py-16 md:px-20">
           <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-center">
@@ -315,20 +366,9 @@ export default function SuretyBondsPage() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
                 Eligibility
               </p>
-              {[
-                'Rating of Contractor/Principal must be "BBB" and above at all times.',
-                "Proposal form and list of requirements provided by NIA to be filled in.",
-                "Details of the contract to be submitted, General Indemnity to be signed by contractor, collateral requirements if any will be specified.",
-                "Treaty acceptance is there only for NHAI, MoRTH projects.",
-              ].map((item, idx) => (
-                <div
-                  key={item}
-                  className="translate-y-6 rounded-md border border-slate-200 bg-white px-5 py-4 shadow-[0_6px_16px_rgba(0,0,0,0.05)] opacity-0 animate-rise"
-                  style={{ animationDelay: `${idx * 120}ms` }}
-                >
-                  {item}
-                </div>
-              ))}
+              <div className="translate-y-6 rounded-md border border-slate-200 bg-white px-5 py-4 shadow-[0_6px_16px_rgba(0,0,0,0.05)] opacity-0 animate-rise">
+                Minimum turnover of the company should be ₹50 crores.
+              </div>
             </div>
           </div>
         </section>
@@ -348,13 +388,18 @@ export default function SuretyBondsPage() {
                 Services & Verified Suppliers.
               </p>
               <div className="flex flex-wrap gap-4">
-                <CtaButton label="Download Brochure" />
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-sm border border-[#cf6734] px-4 py-2.5 text-[12px] font-semibold uppercase tracking-[0.26em] text-[#cf6734] hover:bg-[#cf6734]/10 transition-colors"
-                >
-                  Download Principle List
-                </button>
+                <CtaButton 
+                  label="Download Principle List" 
+                  onClick={() => {
+                    const url = "https://docs.google.com/spreadsheets/d/1KmxIpFl04FNuJ8G8f5VFCpLJ-MeBEWC5/export?format=xlsx";
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'Principle List.xlsx';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                />
               </div>
             </div>
           </div>
