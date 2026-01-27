@@ -24,7 +24,7 @@ const testimonials = [
     initials: "SO",
     badgeClass: "bg-[#f0f4ff] text-slate-700",
     name: "Sopan",
-    sector: "Infrastructure",
+    sector: "O&M pvt. ltd.",
     quote:
       "Indushub is the game-changer for infrastructure company surety bonds. Their process is incredibly smooth, fast, and results-oriented, consistently delivering bonds in the fastest possible time. They truly understand the urgency of the sector and the product Surety Bond to the core.",
   },
@@ -55,20 +55,6 @@ const scrollingTestimonials = testimonials.map((item) => ({
 }));
 
 function CoFounderVideoCard() {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlay = () => {
-    if (!videoRef.current) return;
-    videoRef.current.play();
-    videoRef.current.controls = true;
-    setIsPlaying(true);
-  };
-
-  const handlePause = () => {
-    setIsPlaying(false);
-  };
-
   return (
     <article className="flex h-[420px] flex-col items-center justify-between rounded-2xl border border-slate-200 bg-white px-6 py-5 text-center shadow-sm">
       {/* Status pill */}
@@ -82,38 +68,18 @@ function CoFounderVideoCard() {
         className="relative mt-4 w-full overflow-hidden rounded-3xl bg-slate-900"
         style={{ aspectRatio: "1 / 1" }}
       >
-        <video
-          ref={videoRef}
-          className="h-full w-full object-contain bg-slate-100"
-          src="https://www.pexels.com/download/video/8814086/"
-          poster="/vaishali%20ma%27am.jpeg"
-          loop
-          playsInline
-          onPause={handlePause}
+        <iframe
+          src="https://drive.google.com/file/d/1hQRpfS7QW8-rJ73E96h7dto4jyhg1NdE/preview"
+          className="h-full w-full"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+          title="Vaishali Jog video"
         />
-
-        {!isPlaying && (
-          <button
-            type="button"
-            onClick={handlePlay}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-md">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="ml-0.5 h-5 w-5 text-slate-900"
-              >
-                <path d="M9 7.5v9l7-4.5-7-4.5z" fill="currentColor" />
-              </svg>
-            </span>
-          </button>
-        )}
       </div>
 
       {/* Name */}
       <p className="mt-4 text-[13px] font-semibold text-slate-900">
-        Vaishali Jog
+        CA Vaishali Jog
       </p>
     </article>
   );
