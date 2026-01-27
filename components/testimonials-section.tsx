@@ -65,15 +65,35 @@ function CoFounderVideoCard() {
 
       {/* Square video */}
       <div
-        className="relative mt-4 w-full overflow-hidden rounded-3xl bg-slate-900"
+        className="relative mt-4 w-full overflow-hidden rounded-3xl bg-slate-900 video-container"
         style={{ aspectRatio: "1 / 1" }}
       >
         <iframe
-          src="https://drive.google.com/file/d/1hQRpfS7QW8-rJ73E96h7dto4jyhg1NdE/preview"
+          src="https://drive.google.com/file/d/1hQRpfS7QW8-rJ73E96h7dto4jyhg1NdE/preview?rm=minimal"
           className="h-full w-full"
           allow="autoplay; encrypted-media"
-          allowFullScreen
+          allowFullScreen={false}
           title="Vaishali Jog video"
+          style={{ border: 'none' }}
+        />
+        {/* Overlay to block Google Drive redirect icon and header controls */}
+        <div 
+          className="absolute top-0 right-0 h-24 w-24 z-20"
+          style={{ 
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(15, 23, 42, 0.8) 40%, transparent 60%)',
+            pointerEvents: 'auto',
+            cursor: 'default'
+          }}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }}
+          onMouseDown={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }}
         />
       </div>
 
