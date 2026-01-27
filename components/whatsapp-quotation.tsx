@@ -112,9 +112,6 @@ export function WhatsAppQuotation({
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-xs text-slate-600">
-              <span className="font-semibold text-red-500">*</span> All documents marked with * are mandatory
-            </p>
           </div>
 
           {/* WhatsApp Button */}
