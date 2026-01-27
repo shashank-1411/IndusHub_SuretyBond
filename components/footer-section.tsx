@@ -57,7 +57,7 @@ export function FooterSection({
             </div>
             <div>
               <p className="font-semibold">Email:</p>
-              <p className="mt-1 text-sm font-semibold text-slate-800">pravin@indushub.in</p>
+              <p className="mt-1 text-sm font-semibold text-slate-800">surety@suretybondhub.in</p>
             </div>
             <form
               id={newsletterFormId}
