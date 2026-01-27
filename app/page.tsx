@@ -233,6 +233,10 @@ const clientLogos = [
   "/Frame 34.png",
   "/Frame 35.png",
   "/Frame 37.png",
+  "/WhatsApp Image 2026-01-27 at 11.51.56 PM.jpeg",
+  "/WhatsApp Image 2026-01-27 at 11.52.47 PM.jpeg",
+  "/WhatsApp Image 2026-01-27 at 11.55.23 PM.jpeg",
+  "/Sunrise Constructions 02.png",
 ];
 
 const beneficiaryCategories = [
@@ -264,19 +268,19 @@ const beneficiaryCategories = [
     title: "EPC & Main Contractors",
     description:
       "Engineering, procurement, and construction players who use surety to unlock capacity and meet contract requirements.",
-    image: "/epc.jpg",
+    image: "/two-corporate-businessmen-talking_23-2147707163.avif",
   },
   {
     title: "Private Corporates",
     description:
       "Corporates seeking non-fund based support for complex contracts, vendor programs, and large capital spends.",
-    image: "/developers.png",
+    image: "/private coorporates.jpg",
   },
   {
-    title: "Financial Institutions & Lenders",
+    title: "Oil and Natural Gas",
     description:
-      "Banks and lenders who rely on surety structures to de-risk project financing and working capital lines.",
-    image: "/fiinsti.jpg",
+      "Upstream, midstream, and downstream energy entities using surety to support exploration, production, logistics, and project execution.",
+    image: "/oilandnaturalgas.jpg",
   },
 ];
 
@@ -407,15 +411,19 @@ export default function Home() {
               <div className="mt-6">
                 <CtaButton label="Get Quote" href="#quotation-form" />
               </div>
-              <div className="mt-8 text-sm font-semibold text-slate-100">
-                Fast Issuance within 3 hours*
+              <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold text-slate-100">
+                <div>Fast Issuance within 3 hours*</div>
+                <div>Total bond value issued ₹560 crores</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Hero image */}
-        <section id="hero-image" className="relative h-64 w-full border-b border-slate-100 bg-[#f4f4f4] md:h-[360px] lg:h-[420px]">
+        {/* Hero image with animated achievements */}
+        <section
+          id="hero-image"
+          className="relative h-64 w-full border-b border-slate-100 bg-[#f4f4f4] md:h-[360px] lg:h-[420px]"
+        >
           <Image
             src="/constantinos-kollias-yqBvJJ8jGBQ-unsplash 1.png"
             alt="Construction and infrastructure projects supported by Indus Hub surety bonds"
@@ -424,6 +432,21 @@ export default function Home() {
             sizes="100vw"
             className="object-cover"
           />
+
+          {/* Rotating achievements overlay */}
+          <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-black/60 via-black/10 to-transparent">
+            <div className="mx-auto mb-6 w-full max-w-6xl px-6 md:px-20">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#f6c19a]">
+                Our track record
+              </p>
+              <WordFadeIn
+                key={heroIndex}
+                words={heroHeadings[heroIndex].join(" ")}
+                className="mt-2 max-w-2xl text-lg font-semibold leading-snug text-white md:text-2xl"
+                delay={0.08}
+              />
+            </div>
+          </div>
         </section>
 
         {/* About Us */}
@@ -432,9 +455,6 @@ export default function Home() {
             <p className="text-left text-[11px] font-bold uppercase tracking-[0.25em] text-[#cf6734]">
               About Us
             </p>
-            <h2 className="mt-3 text-left text-3xl font-semibold text-slate-900">
-              Reliable Surety Bond Solutions
-            </h2>
             <p className="mt-4 text-left text-sm leading-relaxed text-slate-700">
               We are pioneers in the surety bond market, having issued India’s first Defence Surety Bond,
               first PSU Surety Bond, and first Municipal Corporation Surety Bond. We enable contractors to
@@ -764,7 +784,7 @@ export default function Home() {
                     {category.title}
                   </div>
                   <div className="pointer-events-none absolute left-0 right-0 top-full z-20 mt-2 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-                    <div className="max-h-72 overflow-y-auto rounded-xl border border-[#cf6734] bg-white p-4 text-xs leading-relaxed text-slate-700 shadow-lg">
+                    <div className="max-h-72 overflow-y-auto rounded-xl border border-[#cf6734] bg-[#fff7f2] p-4 text-xs leading-relaxed text-slate-700 shadow-lg">
                       <ul className="space-y-1">
                         {category.items.map((name) => (
                           <li key={name}>• {name}</li>
@@ -774,6 +794,23 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+            <p className="mt-8 text-center text-sm italic text-slate-600">
+              Adding new industries and sectors everyday.
+            </p>
+            <div className="mt-4 flex justify-center">
+              <button
+                type="button"
+                onClick={() => {
+                  const chatbotButton = document.querySelector('[aria-label="Open chat"], [aria-label="Close chat"]') as HTMLButtonElement;
+                  if (chatbotButton) {
+                    chatbotButton.click();
+                  }
+                }}
+                className="text-sm font-semibold text-[#cf6734] underline hover:text-[#b45828] transition-colors"
+              >
+                check your industry and beneficiaries.
+              </button>
             </div>
           </div>
         </section>
@@ -844,16 +881,30 @@ export default function Home() {
             </p>
             <div className="mt-6 overflow-hidden">
               <div className="logos-marquee flex items-center gap-16">
-                {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((logo, index) => (
-                  <Image
-                    key={`${logo}-${index}`}
-                    src={logo}
-                    alt="Client logo"
-                    width={320}
-                    height={140}
-                    className="h-28 w-auto shrink-0 object-contain"
-                  />
-                ))}
+                {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map(
+                  (logo, index) => (
+                    <div
+                      key={`${logo}-${index}`}
+                      className="relative flex h-28 w-44 shrink-0 items-center justify-center"
+                    >
+                      <div className="relative flex h-full w-full items-center justify-center rounded-md bg-white shadow-sm">
+                        <Image
+                          src={logo}
+                          alt="Client logo"
+                          width={320}
+                          height={140}
+                          className="max-h-16 w-auto object-contain"
+                        />
+                        <div
+                          className="pointer-events-none absolute bottom-0 right-0 h-4 w-4 bg-[#f4f4f4]"
+                          style={{
+                            clipPath: "polygon(100% 0, 0 100%, 100% 100%)",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ),
+                )}
               </div>
             </div>
           </div>
@@ -957,42 +1008,6 @@ export default function Home() {
 
         {/* Quotation via WhatsApp */}
         <WhatsAppQuotation />
-
-        {/* About Indushub */}
-        <section className="border-b border-slate-100 bg-[#f5f3f0] px-6 py-16 md:px-20">
-          <div className="grid gap-0 overflow-hidden rounded-sm border border-[#d7dde5] bg-white md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)]">
-            {/* Left text column */}
-            <div className="px-6 pb-8 pt-8 md:px-10 md:pb-10 md:pt-10">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
-                About
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold text-slate-900">
-                Indushub
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-slate-700">
-                At Indus Business Hub, we understand the complexities and
-                challenges that companies face in today&apos;s competitive
-                market. With our comprehensive suite of services designed to
-                streamline your business operations and drive growth, we enable
-                you to focus on your core business activities and achieve your
-                strategic objectives.
-              </p>
-              <div className="mt-6">
-                <CtaButton label="About Indushub" href="/about" />
-              </div>
-        </div>
-
-            {/* Right image column */}
-            <div className="relative h-60 w-full bg-slate-900 md:h-full">
-            <Image
-                src="/Frame 142.png"
-                alt="Indushub team"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </section>
 
         {/* Testimonials */}
         <TestimonialsSection />
