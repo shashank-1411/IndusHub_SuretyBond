@@ -41,7 +41,9 @@ export function FooterSection({
             </div>
             <div className="mt-4">
               <Link 
-                href="/indushub" 
+                href="https://indushub.com" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-xs font-semibold text-slate-700 hover:text-[#cf6734]"
               >
                 www.indushub.com

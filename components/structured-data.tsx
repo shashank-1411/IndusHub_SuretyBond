@@ -1,13 +1,14 @@
 export function StructuredData() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://indushub.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://suretybondhub.in'
   
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Indus Hub",
+    "name": "Indus Hub Surety Bond",
+    "alternateName": "Indus Hub",
     "url": baseUrl,
     "logo": `${baseUrl}/indus_business_hub_logo.jpg`,
-    "description": "Indus Hub provides comprehensive surety bond solutions and financial guarantees for construction, infrastructure, and business projects across India.",
+    "description": "Indus Hub Surety Bond - India's trusted partner for surety bonds. Issued India's first Defense bond, PSU bond, and Municipal Corporation bond. Fast issuance within 3 hours.",
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Customer Service",
@@ -25,7 +26,8 @@ export function StructuredData() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Indus Hub",
+    "name": "Indus Hub Surety Bond",
+    "alternateName": "Indus Hub",
     "url": baseUrl,
     "potentialAction": {
       "@type": "SearchAction",
@@ -40,11 +42,12 @@ export function StructuredData() {
   const financialServiceSchema = {
     "@context": "https://schema.org",
     "@type": "FinancialService",
-    "name": "Surety Bonds",
-    "description": "Comprehensive surety bond solutions including bid bonds, performance bonds, payment bonds, and custom bonds for construction and business projects.",
+    "name": "Indus Hub Surety Bonds",
+    "description": "Comprehensive surety bond solutions including bid bonds, performance bonds, payment bonds, and custom bonds for construction, infrastructure, EPC, PSU, and government projects across India.",
     "provider": {
       "@type": "Organization",
-      "name": "Indus Hub"
+      "name": "Indus Hub Surety Bond",
+      "alternateName": "Indus Hub"
     },
     "areaServed": {
       "@type": "Country",
