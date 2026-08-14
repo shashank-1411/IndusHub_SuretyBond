@@ -59,7 +59,9 @@ export function FooterSection({
             </div>
             <div>
               <p className="font-semibold">Email:</p>
-              <p className="mt-1 text-sm font-semibold text-slate-800">surety@suretybondhub.in</p>
+              <a href="mailto:pravin@indushub.in" className="mt-1 text-sm font-semibold text-slate-800 hover:text-[#cf6734]">
+                pravin@indushub.in
+              </a>
             </div>
             <form
               id={newsletterFormId}

@@ -38,7 +38,7 @@ canvas {
 }
 
 .page-offset {
-  padding-top: 76px;
+  padding-top: 118px;
 }
 
 /* Thin orange scrollbar for horizontal rows */
@@ -62,6 +62,37 @@ canvas {
 .process-scroll {
   scrollbar-width: thin;
   scrollbar-color: #ec7330 transparent;
+}
+
+/* Independence Day Marquee & Spin */
+@keyframes independence-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.independence-marquee {
+  animation: independence-marquee 25s linear infinite;
+}
+
+.independence-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
 }
 
 /* Logos marquee */

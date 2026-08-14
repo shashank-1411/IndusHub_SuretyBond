@@ -367,7 +367,7 @@ export default function SuretyBondsPage() {
                 Eligibility
               </p>
               <div className="translate-y-6 rounded-md border border-slate-200 bg-white px-5 py-4 shadow-[0_6px_16px_rgba(0,0,0,0.05)] opacity-0 animate-rise">
-                Minimum turnover of the company should be ₹50 crores.
+                Open to registered contractors, EPC firms, and businesses with a valid GSTIN, track record in project execution, and standard financial documentation.
               </div>
             </div>
           </div>

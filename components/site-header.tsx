@@ -5,13 +5,15 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { NAV_ITEMS } from "@/lib/navigation";
+import { IndependenceBanner } from "@/components/independence-banner";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-transparent bg-white">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-transparent bg-white shadow-xs">
+      <IndependenceBanner />
       <div className="flex items-center justify-between px-5 py-4 md:px-12 lg:px-20">
         <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
           <Image

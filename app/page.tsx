@@ -241,45 +241,45 @@ const clientLogos = [
 
 const beneficiaryCategories = [
   {
-    title: "Government Departments & PSUs",
+    title: "Government Departments & Ministries",
     description:
-      "Central and state departments, ministries, and public sector undertakings that need assurance on contractor performance and compliance.",
+      "Central and state departments, ministries, and authorities requiring contractor performance guarantees, compliance, and project completion assurance.",
     image: "/government.jpg",
   },
   {
-    title: "Public Sector Undertakings",
+    title: "Public Sector Undertakings (PSUs)",
     description:
-      "Large government-linked enterprises executing strategic, capital-intensive projects across sectors.",
+      "State and central PSUs executing strategic, capital-intensive infrastructure, industrial, and utility projects across India.",
     image: "/public.jpg",
   },
   {
-    title: "Infrastructure Authorities",
+    title: "Infrastructure & Utility Authorities",
     description:
-      "Authorities overseeing roads, ports, metros, airports, and utilities where surety bonds protect long-duration projects.",
+      "Authorities overseeing highways, railways, ports, airports, metros, and urban utilities where surety bonds replace bank guarantees.",
     image: "/psu.jpg",
   },
   {
     title: "Project Owners & Developers",
     description:
-      "Entities sponsoring projects who require performance, payment, and maintenance protection from their contractors.",
+      "Commercial, residential, and industrial project sponsors requiring performance, payment, and maintenance protection from contractors.",
     image: "/pp44.jpg",
   },
   {
-    title: "EPC & Main Contractors",
+    title: "EPC & Turnkey Contractors",
     description:
-      "Engineering, procurement, and construction players who use surety to unlock capacity and meet contract requirements.",
+      "Engineering, procurement, and construction leaders who leverage surety bonds to unlock liquidity and bid for major tenders.",
     image: "/two-corporate-businessmen-talking_23-2147707163.avif",
   },
   {
     title: "Private Corporates",
     description:
-      "Corporates seeking non-fund based support for complex contracts, vendor programs, and large capital spends.",
+      "Corporates seeking non-fund based financial guarantees to optimize working capital for large vendor and procurement contracts.",
     image: "/private coorporates.jpg",
   },
   {
-    title: "Oil and Natural Gas",
+    title: "Energy, Oil & Natural Gas",
     description:
-      "Upstream, midstream, and downstream energy entities using surety to support exploration, production, logistics, and project execution.",
+      "Upstream, midstream, and renewable energy companies utilizing surety bonds for exploration, logistics, and plant execution.",
     image: "/oilandnaturalgas.jpg",
   },
 ];
@@ -287,10 +287,6 @@ const beneficiaryCategories = [
 const heroHeadings: string[][] = [
   [
     "Issued India's first Defense bond",
-  ],
-  [
-    "Issued India’s First",
-    "PSU Bond",
   ],
   [
     "Issued India’s First",
@@ -456,8 +452,7 @@ export default function Home() {
               About Us
             </p>
             <p className="mt-4 text-left text-sm leading-relaxed text-slate-700">
-              We are pioneers in the surety bond market, having issued India’s first Defence Surety Bond,
-              first PSU Surety Bond, and first Municipal Corporation Surety Bond. We enable contractors to
+              We are pioneers in the surety bond market, having issued India’s first Defence Surety Bond and first Municipal Corporation Surety Bond. We enable contractors to
               participate in large-scale infrastructure and government projects without blocking valuable
               working capital. Surety bonds are a cost-effective alternative to traditional bank guarantees,
               unlocking liquidity and enabling contractors to bid for multiple projects simultaneously.

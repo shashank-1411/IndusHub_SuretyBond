@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Chatbot } from "@/components/chatbot";
 import { StructuredData } from "@/components/structured-data";
+import { IndependencePopup } from "@/components/independence-popup";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     default: "Indus Hub Surety Bond | India's Trusted Surety Bond Partner",
     template: "%s | Indus Hub Surety Bond"
   },
-  description: "Indus Hub Surety Bond - India's trusted partner for surety bonds. Issued India's first Defense bond, PSU bond, and Municipal Corporation bond. Fast issuance within 3 hours. Replace bank guarantees with efficient surety bonds for infrastructure, EPC, and government projects.",
+  description: "Indus Hub Surety Bond - India's trusted partner for surety bonds. Issued India's first Defense bond and Municipal Corporation bond. Fast issuance within 3 hours. Replace bank guarantees with efficient surety bonds for infrastructure, EPC, and government projects.",
   keywords: [
     "indus hub surety bond",
     "indus hub",
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Indus Hub Surety Bond",
     title: "Indus Hub Surety Bond | India's Trusted Surety Bond Partner",
-    description: "Indus Hub Surety Bond - Issued India's first Defense bond, PSU bond, and Municipal Corporation bond. Fast issuance within 3 hours. Replace bank guarantees with efficient surety bonds.",
+    description: "Indus Hub Surety Bond - Issued India's first Defense bond and Municipal Corporation bond. Fast issuance within 3 hours. Replace bank guarantees with efficient surety bonds.",
     images: [
       {
         url: "/indus_business_hub_logo.jpg",
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Indus Hub Surety Bond | India's Trusted Surety Bond Partner",
-    description: "Indus Hub Surety Bond - Issued India's first Defense bond, PSU bond, and Municipal Corporation bond. Fast issuance within 3 hours.",
+    description: "Indus Hub Surety Bond - Issued India's first Defense bond and Municipal Corporation bond. Fast issuance within 3 hours.",
     images: ["/indus_business_hub_logo.jpg"],
   },
   robots: {
@@ -114,6 +115,7 @@ export default function RootLayout({
         <StructuredData />
         {children}
         <Chatbot />
+        <IndependencePopup />
       </body>
     </html>
   );

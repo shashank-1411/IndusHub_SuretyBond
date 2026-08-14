@@ -151,10 +151,10 @@ export default function PrivacyPage() {
                 communications from us, you can do so by clicking "Unsubscribe"
                 in our emails or by contacting us at{" "}
                 <a
-                  href="mailto:support@suretybondhub.in"
+                  href="mailto:pravin@indushub.in"
                   className="text-[#cf6734] hover:underline"
                 >
-                  support@suretybondhub.in
+                  pravin@indushub.in
                 </a>
                 .
               </p>
@@ -222,10 +222,10 @@ export default function PrivacyPage() {
                 questions about how we handle your information, please contact
                 us at{" "}
                 <a
-                  href="mailto:support@suretybondhub.in"
+                  href="mailto:pravin@indushub.in"
                   className="text-[#cf6734] hover:underline"
                 >
-                  support@suretybondhub.in
+                  pravin@indushub.in
                 </a>
                 .
               </p>
@@ -351,10 +351,10 @@ export default function PrivacyPage() {
                 Privacy Policy or how we handle your personal information,
                 please contact us at{" "}
                 <a
-                  href="mailto:support@suretybondhub.in"
+                  href="mailto:pravin@indushub.in"
                   className="text-[#cf6734] hover:underline"
                 >
-                  support@suretybondhub.in
+                  pravin@indushub.in
                 </a>
                 .
               </p>

@@ -63,10 +63,10 @@ export default function TermsPage() {
               <p className="mb-4">
                 If you believe someone has accessed the Portal/Application using your username and password without your authorization, you must contact SuretyBondHub by mailing us at{" "}
                 <a
-                  href="mailto:support@suretybondhub.in"
+                  href="mailto:pravin@indushub.in"
                   className="text-[#cf6734] hover:underline"
                 >
-                  support@suretybondhub.in
+                  pravin@indushub.in
                 </a>
                 .
               </p>
@@ -88,10 +88,10 @@ export default function TermsPage() {
               <p className="mb-4">
                 You are NOT allowed to DOWNLOAD or copy and make any personal, non-commercial, or commercial use of the Content or information from the Application in whole or in part without the express permission of SuretyBondHub. Requests for such permission should be made to{" "}
                 <a
-                  href="mailto:support@suretybondhub.in"
+                  href="mailto:pravin@indushub.in"
                   className="text-[#cf6734] hover:underline"
                 >
-                  support@suretybondhub.in
+                  pravin@indushub.in
                 </a>
                 . Any rights not expressly granted herein are reserved. Please be advised that SuretyBondHub enforces its intellectual property rights to the fullest extent of the law.
               </p>

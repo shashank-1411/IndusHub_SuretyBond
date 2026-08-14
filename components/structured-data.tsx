@@ -8,7 +8,7 @@ export function StructuredData() {
     "alternateName": "Indus Hub",
     "url": baseUrl,
     "logo": `${baseUrl}/indus_business_hub_logo.jpg`,
-    "description": "Indus Hub Surety Bond - India's trusted partner for surety bonds. Issued India's first Defense bond, PSU bond, and Municipal Corporation bond. Fast issuance within 3 hours.",
+    "description": "Indus Hub Surety Bond - India's trusted partner for surety bonds. Issued India's first Defense bond and Municipal Corporation bond. Fast issuance within 3 hours.",
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Customer Service",
