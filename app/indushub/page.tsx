@@ -18,17 +18,23 @@ export default function IndushubPage() {
           beamDuration={4}
           gridColor="hsl(217 33% 17%)"
         >
-          <div className="text-center">
-            <h1 className="text-6xl font-semibold text-white md:text-7xl lg:text-8xl xl:text-9xl">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#cf6734]/50 bg-[#cf6734]/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.25em] text-[#f97316] backdrop-blur-md">
+              <span>⚡ 17 Categories & 180+ Services</span>
+            </div>
+            <h1 className="text-6xl font-extrabold text-white md:text-7xl lg:text-8xl tracking-tight">
               Coming Soon
             </h1>
-            <p className="mt-6 text-xl text-slate-300 md:text-2xl lg:text-3xl">
+            <p className="mt-6 text-xl font-semibold text-amber-200 md:text-2xl lg:text-3xl max-w-3xl mx-auto leading-relaxed">
+              We believe in empowering businesses to drive economic growth
+            </p>
+            <p className="mt-4 text-base text-slate-300 md:text-lg max-w-2xl mx-auto leading-relaxed">
               We&apos;re working on something amazing. Stay tuned!
             </p>
             <div className="mt-10">
               <Link
                 href="/"
-                className="inline-block rounded-sm bg-[#cf6734] px-6 py-3 text-sm font-semibold uppercase tracking-[0.26em] text-white transition-colors hover:bg-[#b45828]"
+                className="inline-block rounded-md bg-[#cf6734] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.26em] text-white shadow-lg transition-transform hover:scale-105 hover:bg-[#b45828]"
               >
                 Back to Home
               </Link>
