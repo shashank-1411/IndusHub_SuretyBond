@@ -1,4 +1,4 @@
-const LOGO_BASE64 = `iVBORw0KGgoAAAANSU5ErkJggg==`;
+import { LOGO_BASE64 } from './logo-base64';
 
 export function downloadBeneficiaryListDocument() {
   const content = `<!DOCTYPE html>
@@ -54,9 +54,11 @@ export function downloadBeneficiaryListDocument() {
       z-index: 2;
     }
     .brand-logo {
-      height: 52px;
+      height: 48px;
       width: auto;
+      max-width: 260px;
       object-fit: contain;
+      display: block;
     }
     .doc-info {
       text-align: right;
@@ -164,7 +166,7 @@ export function downloadBeneficiaryListDocument() {
       border: 1px solid #e2e8f0;
       position: relative;
       z-index: 2;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
     }
     th {
       background: #f8fafc;
@@ -189,7 +191,7 @@ export function downloadBeneficiaryListDocument() {
       border-bottom: none;
     }
     tr:nth-child(even) td {
-      background: rgba(250, 250, 250, 0.95);
+      background: rgba(250, 250, 250, 0.96);
     }
     .category-tag {
       display: inline-block;
@@ -248,7 +250,7 @@ export function downloadBeneficiaryListDocument() {
 
     <div class="header">
       <div>
-        <img src="/logo updated.png" alt="Indus Hub Logo" class="brand-logo" />
+        <img src="${LOGO_BASE64}" alt="Indus Hub Logo" class="brand-logo" />
       </div>
       <div class="doc-info">
         <div class="doc-badge">Verified Document</div>
