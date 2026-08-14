@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/testimonials-section";
 import { FooterSection } from "@/components/footer-section";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
 import { ParallaxTiltCard } from "@/components/ui/parallax-tilt-card";
+import { downloadBeneficiaryListDocument } from "@/lib/beneficiaries-download";
 
 const keyPlayers = [
   {
@@ -389,16 +390,8 @@ export default function SuretyBondsPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <CtaButton 
-                  label="Download Principle List" 
-                  onClick={() => {
-                    const url = "https://docs.google.com/spreadsheets/d/1KmxIpFl04FNuJ8G8f5VFCpLJ-MeBEWC5/export?format=xlsx";
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.download = 'Principle List.xlsx';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                  }}
+                  label="Download Beneficiary List" 
+                  onClick={downloadBeneficiaryListDocument}
                 />
               </div>
             </div>

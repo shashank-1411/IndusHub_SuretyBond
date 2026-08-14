@@ -13,6 +13,7 @@ import { TestimonialsSection } from "@/components/testimonials-section";
 import { FooterSection } from "@/components/footer-section";
 import { WhatsAppQuotation } from "@/components/whatsapp-quotation";
 import { WordFadeIn } from "@/components/ui/word-fade-in";
+import { downloadBeneficiaryListDocument } from "@/lib/beneficiaries-download";
 
 const benefits = [
   {
@@ -544,16 +545,8 @@ export default function Home() {
               </h2>
               <div className="flex justify-start md:justify-end">
                 <CtaButton 
-                  label="Download Principle List"
-                  onClick={() => {
-                    const url = "https://docs.google.com/spreadsheets/d/1KmxIpFl04FNuJ8G8f5VFCpLJ-MeBEWC5/export?format=xlsx";
-                    const link = document.createElement("a");
-                    link.href = url;
-                    link.download = "Principle List.xlsx";
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                  }}
+                  label="Download Beneficiary List"
+                  onClick={downloadBeneficiaryListDocument}
                 />
               </div>
             </div>
@@ -908,15 +901,25 @@ export default function Home() {
         {/* Beneficiaries */}
         <section className="border-b border-slate-100 bg-[#f4f4f4] px-6 py-16 md:px-20">
           <div className="mx-auto max-w-6xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
-              Beneficiaries
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-900">
-              Beneficiaries accepting Surety Bonds
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-700">
-              Ensuring protection and compliance for all stakeholders involved in a contract.
-            </p>
+            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#cf6734]">
+                  Beneficiaries
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold text-slate-900">
+                  Beneficiaries accepting Surety Bonds
+                </h2>
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-slate-700">
+                  Ensuring protection and compliance for all stakeholders involved in a contract.
+                </p>
+              </div>
+              <div className="shrink-0 pt-2 md:pt-0">
+                <CtaButton
+                  label="Download Beneficiary List"
+                  onClick={downloadBeneficiaryListDocument}
+                />
+              </div>
+            </div>
 
             <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-stretch">
               <div className="flex flex-row gap-3 overflow-x-auto pb-2 md:flex-col md:pb-0">
