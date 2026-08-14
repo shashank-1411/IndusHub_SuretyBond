@@ -7,10 +7,13 @@ export function downloadBeneficiaryListDocument() {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Indus Hub Surety Bond - Approved Beneficiaries List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: #1e293b;
       background: #f8fafc;
       padding: 40px 20px;
@@ -41,7 +44,7 @@ export function downloadBeneficiaryListDocument() {
       z-index: 1;
       user-select: none;
       text-transform: uppercase;
-      font-family: Arial, sans-serif;
+      font-family: 'Manrope', Arial, sans-serif;
     }
     .header {
       display: flex;
