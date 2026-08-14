@@ -28,9 +28,6 @@ export default function IndushubPage() {
             <p className="mt-6 text-xl font-semibold text-amber-200 md:text-2xl lg:text-3xl max-w-3xl mx-auto leading-relaxed">
               We believe in empowering businesses to drive economic growth
             </p>
-            <p className="mt-4 text-base text-slate-300 md:text-lg max-w-2xl mx-auto leading-relaxed">
-              We&apos;re working on something amazing. Stay tuned!
-            </p>
             <div className="mt-10">
               <Link
                 href="/"
