@@ -792,20 +792,6 @@ export default function Home() {
             <p className="mt-8 text-center text-sm italic text-slate-600">
               Adding new industries and sectors everyday.
             </p>
-            <div className="mt-4 flex justify-center">
-              <button
-                type="button"
-                onClick={() => {
-                  const chatbotButton = document.querySelector('[aria-label="Open chat"], [aria-label="Close chat"]') as HTMLButtonElement;
-                  if (chatbotButton) {
-                    chatbotButton.click();
-                  }
-                }}
-                className="text-sm font-semibold text-[#cf6734] underline hover:text-[#b45828] transition-colors"
-              >
-                check your industry and beneficiaries.
-              </button>
-            </div>
           </div>
         </section>
 
