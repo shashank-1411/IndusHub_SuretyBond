@@ -270,10 +270,6 @@ export function downloadBeneficiaryListDocument() {
           <span class="contact-label">Direct Email</span>
           <span class="contact-val"><a href="mailto:pravin@indushub.in">pravin@indushub.in</a></span>
         </div>
-        <div class="contact-item">
-          <span class="contact-label">Official Website</span>
-          <span class="contact-val"><a href="https://www.indushub.com" target="_blank">www.indushub.com</a></span>
-        </div>
       </div>
     </div>
 

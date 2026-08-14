@@ -39,16 +39,6 @@ export function FooterSection({
               <Link href="/privacy" className="font-semibold hover:text-[#cf6734]">Privacy Policy</Link>
               <Link href="/terms" className="font-semibold hover:text-[#cf6734]">Terms and Conditions</Link>
             </div>
-            <div className="mt-4">
-              <Link 
-                href="https://indushub.com" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs font-semibold text-slate-700 hover:text-[#cf6734]"
-              >
-                www.indushub.com
-              </Link>
-            </div>
           </div>
 
           {/* Right */}
