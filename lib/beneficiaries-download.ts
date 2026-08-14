@@ -253,7 +253,6 @@ export function downloadBeneficiaryListDocument() {
         <img src="${LOGO_BASE64}" alt="Indus Hub Logo" class="brand-logo" />
       </div>
       <div class="doc-info">
-        <div class="doc-badge">Verified Document</div>
         <div class="doc-title">Approved Beneficiaries List</div>
       </div>
     </div>
