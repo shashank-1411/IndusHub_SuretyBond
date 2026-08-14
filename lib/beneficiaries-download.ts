@@ -1,3 +1,5 @@
+const LOGO_BASE64 = `iVBORw0KGgoAAAANSU5ErkJggg==`;
+
 export function downloadBeneficiaryListDocument() {
   const content = `<!DOCTYPE html>
 <html lang="en">
@@ -12,15 +14,34 @@ export function downloadBeneficiaryListDocument() {
       color: #1e293b;
       background: #f8fafc;
       padding: 40px 20px;
+      position: relative;
     }
     .container {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
       background: #ffffff;
-      padding: 40px;
+      padding: 44px;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
       border: 1px solid #e2e8f0;
+      position: relative;
+      overflow: hidden;
+    }
+    .watermark {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-32deg);
+      font-size: 110px;
+      font-weight: 900;
+      color: rgba(207, 103, 52, 0.05);
+      letter-spacing: 18px;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 1;
+      user-select: none;
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
     }
     .header {
       display: flex;
@@ -29,24 +50,13 @@ export function downloadBeneficiaryListDocument() {
       border-bottom: 3px solid #cf6734;
       padding-bottom: 24px;
       margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
     }
-    .brand {
-      display: flex;
-      flex-direction: column;
-    }
-    .brand-name {
-      font-size: 28px;
-      font-weight: 800;
-      color: #cf6734;
-      letter-spacing: -0.5px;
-    }
-    .brand-sub {
-      font-size: 12px;
-      font-weight: 700;
-      color: #475569;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: 2px;
+    .brand-logo {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
     }
     .doc-info {
       text-align: right;
@@ -57,7 +67,7 @@ export function downloadBeneficiaryListDocument() {
       color: #cf6734;
       font-size: 11px;
       font-weight: 700;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 20px;
       border: 1px solid #ffedd5;
       text-transform: uppercase;
@@ -65,17 +75,19 @@ export function downloadBeneficiaryListDocument() {
       margin-bottom: 6px;
     }
     .doc-title {
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 22px;
+      font-weight: 800;
       color: #0f172a;
     }
     .contact-card {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       color: #ffffff;
       border-radius: 10px;
-      padding: 24px;
+      padding: 24px 28px;
       margin-bottom: 32px;
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+      position: relative;
+      z-index: 2;
     }
     .contact-title {
       font-size: 12px;
@@ -105,7 +117,6 @@ export function downloadBeneficiaryListDocument() {
       font-size: 16px;
       font-weight: 700;
       color: #ffffff;
-      text-decoration: none;
     }
     .contact-val a {
       color: #ffffff;
@@ -121,16 +132,20 @@ export function downloadBeneficiaryListDocument() {
       margin-bottom: 30px;
       padding-bottom: 20px;
       border-bottom: 1px solid #f1f5f9;
+      position: relative;
+      z-index: 2;
     }
     .section-title {
       font-size: 16px;
       font-weight: 700;
       color: #0f172a;
       margin-top: 28px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 8px;
+      position: relative;
+      z-index: 2;
     }
     .section-title::before {
       content: "";
@@ -143,10 +158,13 @@ export function downloadBeneficiaryListDocument() {
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid #e2e8f0;
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.92);
     }
     th {
       background: #f8fafc;
@@ -155,7 +173,7 @@ export function downloadBeneficiaryListDocument() {
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      padding: 12px 16px;
+      padding: 14px 16px;
       text-align: left;
       border-bottom: 1px solid #e2e8f0;
     }
@@ -163,14 +181,15 @@ export function downloadBeneficiaryListDocument() {
       padding: 14px 16px;
       font-size: 13px;
       color: #334155;
-      line-height: 1.5;
+      line-height: 1.6;
       border-bottom: 1px solid #f1f5f9;
+      vertical-align: top;
     }
     tr:last-child td {
       border-bottom: none;
     }
     tr:nth-child(even) td {
-      background: #fafafa;
+      background: rgba(250, 250, 250, 0.95);
     }
     .category-tag {
       display: inline-block;
@@ -182,17 +201,20 @@ export function downloadBeneficiaryListDocument() {
       display: flex;
       justify-content: center;
       gap: 16px;
+      position: relative;
+      z-index: 2;
     }
     .print-btn {
       background: #cf6734;
       color: #ffffff;
       border: none;
-      padding: 12px 24px;
+      padding: 12px 28px;
       font-size: 14px;
       font-weight: 700;
       border-radius: 6px;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(207, 103, 52, 0.3);
+      box-shadow: 0 2px 10px rgba(207, 103, 52, 0.3);
+      transition: background 0.2s ease;
     }
     .print-btn:hover {
       background: #b45828;
@@ -204,20 +226,29 @@ export function downloadBeneficiaryListDocument() {
       text-align: center;
       font-size: 12px;
       color: #94a3b8;
+      position: relative;
+      z-index: 2;
     }
     @media print {
       body { background: #fff; padding: 0; }
       .container { box-shadow: none; border: none; padding: 0; max-width: 100%; }
       .actions { display: none; }
+      .watermark {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color: rgba(207, 103, 52, 0.08) !important;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Background Diagonal Watermark -->
+    <div class="watermark">INDUS HUB</div>
+
     <div class="header">
-      <div class="brand">
-        <div class="brand-name">INDUS HUB</div>
-        <div class="brand-sub">Surety Bond Partner</div>
+      <div>
+        <img src="/logo updated.png" alt="Indus Hub Logo" class="brand-logo" />
       </div>
       <div class="doc-info">
         <div class="doc-badge">Verified Document</div>
@@ -225,7 +256,7 @@ export function downloadBeneficiaryListDocument() {
       </div>
     </div>
 
-    <!-- Official Contact Card -->
+    <!-- Official Contact Details -->
     <div class="contact-card">
       <div class="contact-title">Indus Hub Official Contact Details</div>
       <div class="contact-grid">
@@ -245,18 +276,22 @@ export function downloadBeneficiaryListDocument() {
     </div>
 
     <div class="intro-text">
-      Indus Hub is India&apos;s trusted partner for IRDAI-compliant Surety Bonds. Below is the comprehensive list of approved beneficiaries, departments, PSUs, and authorities accepting Surety Bonds in place of traditional Bank Guarantees (BGs).
+      Indus Hub is India&apos;s trusted partner for IRDAI-compliant Surety Bonds. Below is the official list of approved beneficiaries, transport corporations, PSUs, and government authorities accepting Surety Bonds in place of traditional Bank Guarantees (BGs).
     </div>
 
     <div class="section-title">Beneficiary Categories & Entities</div>
     <table>
       <thead>
         <tr>
-          <th style="width: 30%;">Category</th>
-          <th style="width: 70%;">Accepted Beneficiaries & Departments</th>
+          <th style="width: 32%;">Category</th>
+          <th style="width: 68%;">Accepted Beneficiaries & Entities</th>
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td><span class="category-tag">Transport & Mobility</span></td>
+          <td>Ajmer Pushkar City Bus Limited, Bharatpur City Transport Services Limited, Capital Region Urban Transport (SPV Govt of Odisha), Dehradun City Transport Limited, Gurugram Metropolitan City Bus Limited, Jodhpur Bus Service Limited, Jaipur City Transport Services Limited, Kota Bus Services Limited, Maharashtra State Road Transport Corporation (MSRTC), Pushkar City Bus Limited, Ropeways and Rapid Transport System Development Corporation, U.P. State Road Transport Corporation (UPSRTC), Udaipur City Transport Services Limited, Uttarakhand Transport Corporation.</td>
+        </tr>
         <tr>
           <td><span class="category-tag">Government Departments & Ministries</span></td>
           <td>Ministry of Road Transport & Highways (MoRTH), PWD (State & Central), Ministry of Defence, Central Public Works Dept (CPWD), Water Resources, Railways, Irrigation Authorities.</td>

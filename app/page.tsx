@@ -242,6 +242,12 @@ const clientLogos = [
 
 const beneficiaryCategories = [
   {
+    title: "Transport & Mobility",
+    description:
+      "State road transport corporations, city bus services, metro rail, and rapid transit development authorities accepting surety bonds for fleet and infrastructure tenders.",
+    image: "/government.jpg",
+  },
+  {
     title: "Government Departments & Ministries",
     description:
       "Central and state departments, ministries, and authorities requiring contractor performance guarantees, compliance, and project completion assurance.",
