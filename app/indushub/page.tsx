@@ -2,20 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { CtaButton } from "@/components/cta-button";
 
 export default function IndushubPage() {
   return (
     <div className="relative min-h-screen w-full bg-[#0a0a0a] text-white antialiased flex flex-col md:flex-row overflow-hidden font-sans">
       {/* LEFT SIDEBAR (~22% width on desktop) */}
       <aside className="w-full md:w-[22%] lg:w-[22%] xl:w-[22%] bg-[#09090b] flex flex-col justify-between p-6 sm:p-8 lg:p-10 z-20 border-b md:border-b-0 md:border-r border-white/10 shrink-0 min-h-[160px] md:min-h-screen">
-        {/* Top-left Brand Logo */}
+        {/* Top-left Brand Logo (Text Only) */}
         <div>
-          <Link href="/" className="inline-flex items-center gap-3 group">
-            {/* Geometric Logo Mark: Two offset overlapping white/grey boxes */}
-            <div className="relative w-7 h-7 flex items-center justify-center">
-              <div className="absolute top-0 right-0 w-4 h-4 bg-white/70 rounded-[1px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              <div className="absolute bottom-0 left-0 w-4.5 h-4.5 bg-white rounded-[1px] shadow-sm" />
-            </div>
+          <Link href="/" className="inline-flex items-center group">
             <span className="text-xl lg:text-2xl font-normal text-white tracking-tight font-sans">
               Indus Hub
             </span>
@@ -60,8 +56,6 @@ export default function IndushubPage() {
           <div className="absolute inset-0 bg-black/25" />
         </div>
 
-
-
         {/* Headline, Supporting Text & Primary CTA */}
         <div className="relative z-10 p-8 sm:p-12 md:p-16 lg:p-20 max-w-4xl space-y-6">
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[1.04] drop-shadow-md">
@@ -72,19 +66,14 @@ export default function IndushubPage() {
             We believe in empowering business to drive economic growth and propel the nation forward.
           </p>
           
-          {/* Primary CTA: Connect with us */}
+          {/* Primary CTA: Connect with us (Matching site standard button style) */}
           <div className="pt-4 sm:pt-6">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#cf6734] hover:bg-[#b85828] text-white font-medium text-sm sm:text-base tracking-widest uppercase shadow-2xl transition-all duration-300 hover:scale-105 group border border-white/20 active:scale-95"
-            >
-              <span>Connect with us</span>
-              <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-            </Link>
+            <CtaButton label="Connect with us" href="/contact" />
           </div>
         </div>
       </main>
     </div>
   );
 }
+
 
