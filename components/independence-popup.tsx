@@ -48,8 +48,8 @@ export function IndependencePopup() {
         {/* Pure Image Content */}
         <div className="relative overflow-hidden rounded-2xl shadow-2xl">
           <Image
-            src="/happy-independence-day-celebration_562076-3759.avif"
-            alt="Happy Independence Day Celebration"
+            src="/80thindependence day.webp"
+            alt="80th Independence Day Celebration"
             width={600}
             height={600}
             className="max-h-[80vh] w-auto max-w-full object-contain rounded-2xl"
